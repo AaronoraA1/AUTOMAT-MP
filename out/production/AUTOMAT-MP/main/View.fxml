@@ -1,29 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="768.0" style="-fx-background-color: darkblue;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
     <children>
-        <Button fx:id="launchButton" layoutX="602.0" layoutY="357.0" mnemonicParsing="false" onAction="#launch" prefHeight="98.0" prefWidth="100.0" text="Launch" />
-        <Button fx:id="earthHuman1Button" layoutX="228.0" layoutY="480.0" mnemonicParsing="false" text="Human" />
-        <Button fx:id="earthGoatButton" layoutX="332.0" layoutY="480.0" mnemonicParsing="false" text="Goat" />
-        <Button fx:id="earthHuman2Button" layoutX="280.0" layoutY="480.0" mnemonicParsing="false" text="Human" />
-        <Button fx:id="earthScientistButton" layoutX="461.0" layoutY="480.0" mnemonicParsing="false" text="Scientist" />
-        <Button fx:id="earthGrainButton" layoutX="416.0" layoutY="480.0" mnemonicParsing="false" text="Grain" />
-        <Button fx:id="earthLionButton" layoutX="374.0" layoutY="480.0" mnemonicParsing="false" text="Lion" />
-        <Button fx:id="marsHuman1Button" layoutX="235.0" layoutY="30.0" mnemonicParsing="false" text="Human" />
-        <Button fx:id="marsGoatButton" layoutX="339.0" layoutY="30.0" mnemonicParsing="false" text="Goat" />
-        <Button fx:id="marsHuman2Button" layoutX="287.0" layoutY="30.0" mnemonicParsing="false" text="Human" />
-        <Button fx:id="marsScientistButton" layoutX="460.0" layoutY="30.0" mnemonicParsing="false" text="Scientist" />
-        <Button fx:id="marsGrainButton" layoutX="413.0" layoutY="30.0" mnemonicParsing="false" text="Grain" />
-        <Button fx:id="marsLionButton" layoutX="375.0" layoutY="30.0" mnemonicParsing="false" text="Lion" />
-        <Text fx:id="alert" layoutX="214.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="360.5367431640625">
-            <font>
-                <Font size="34.0" />
-            </font>
-        </Text>
+      <ImageView fitHeight="327.0" fitWidth="339.0" layoutX="482.0" layoutY="-42.0" opacity="0.73" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/moon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="277.0" fitWidth="258.0" layoutX="-56.0" layoutY="-14.0" opacity="0.74" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/planet-earth.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="launchButton" layoutX="638.0" layoutY="507.0" mnemonicParsing="false" onAction="#launch" prefHeight="41.0" prefWidth="114.0" text="Launch" />
+      <ImageView fx:id="earthHuman1Pic" fitHeight="83.0" fitWidth="61.0" layoutX="20.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/man.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="earthHuman1Button" layoutX="23.0" layoutY="9.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="earthCowPic" fitHeight="83.0" fitWidth="61.0" layoutX="27.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/cow.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="earthCowButton" layoutX="25.0" layoutY="94.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="earthHuman2Pic" fitHeight="83.0" fitWidth="61.0" layoutX="92.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/woman.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="earthHuman2Button" layoutX="91.0" layoutY="36.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="earthGrainPic" fitHeight="60.0" fitWidth="47.0" layoutX="66.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/money-bag.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="earthGrainButton" layoutX="58.0" layoutY="165.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="earthLionPic" fitHeight="83.0" fitWidth="61.0" layoutX="113.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/lion.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="earthLionButton" layoutX="111.0" layoutY="110.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="marsHuman1Pic" fitHeight="83.0" fitWidth="61.0" layoutX="569.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/man.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="marsHuman1Button" layoutX="572.0" layoutY="28.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="marsCowPic" fitHeight="83.0" fitWidth="61.0" layoutX="576.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/cow.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="marsCowButton" layoutX="574.0" layoutY="113.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="marsHuman2Pic" fitHeight="83.0" fitWidth="61.0" layoutX="641.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/woman.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="marsHuman2Button" layoutX="640.0" layoutY="55.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="marsGrainPic" fitHeight="60.0" fitWidth="47.0" layoutX="615.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/money-bag.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="marsGrainButton" layoutX="607.0" layoutY="184.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="marsLionPic" fitHeight="83.0" fitWidth="61.0" layoutX="662.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/lion.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="marsLionButton" layoutX="660.0" layoutY="129.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+      <ImageView fx:id="scientistSpaceship" fitHeight="96.0" fitWidth="100.0" layoutX="163.0" layoutY="156.0" opacity="0.94" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/ufo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="hintButton" layoutX="425.0" layoutY="459.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="327.0" text="Solution Hint" />
+      <ScrollPane fx:id="solutionPane" layoutX="425.0" layoutY="356.0" prefHeight="96.0" prefWidth="327.0" style="-fx-background-color: beige;" />
+      <ScrollPane fx:id="previousStatePane" layoutX="16.0" layoutY="336.0" prefHeight="213.0" prefWidth="170.0" />
+      <ScrollPane fx:id="currentStatePane" layoutX="198.0" layoutY="336.0" prefHeight="213.0" prefWidth="170.0" />
+      <Label layoutX="40.0" layoutY="307.0" text="Previous State" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="223.0" layoutY="306.0" text="Current State" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="alertsLabel" layoutX="426.0" layoutY="519.0" prefHeight="30.0" prefWidth="208.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="547.0" layoutY="323.0" text="Solution" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="426.0" layoutY="499.0" text="Loaded in Rocket :" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
