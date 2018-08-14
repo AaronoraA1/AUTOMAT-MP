@@ -12,6 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+
 public class Controller {
 
     @FXML
@@ -43,8 +45,11 @@ public class Controller {
     public int turn = 0; // CURRENT LOCATION : 0 = EARTH, 1 = MARS
     public Element[] rocketElements = new Element[2]; // SCIENTIST ASSUMED TO BE ONBOARD ALREADY
     public Element h1, h2, l, c, g; // ALL ELEMENTS
+    public ArrayList<State> finalStates = new ArrayList<State>();
+    public ArrayList<Element> earthStates = new ArrayList<Element>();
+    public ArrayList<Element> marsStates = new ArrayList<Element>();
 
-    /////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void initialize(){
         h1 = new Element("Human 1", 0); // 0 = EARTH, 1 = MARS
@@ -130,6 +135,83 @@ public class Controller {
                 }
             });
     }
+    private void initFinalStates(){
+        ArrayList<Element> es = new ArrayList<Element>();
+        ArrayList<Element> ms = new ArrayList<Element>();
+
+        es.add(h1);
+        es.add(h2);
+        es.add(l);
+        es.add(c);
+        es.add(g);
+        finalStates.add(new State(es, ms));
+        es.clear();
+        ms.clear();
+
+        es.add(h1);
+        es.add(h2);
+        es.add(g);
+        ms.add(l);
+        ms.add(c);
+        finalStates.add(new State(es, ms));
+        es.clear();
+        ms.clear();
+
+        es.add(h1);
+        es.add(h2);
+        es.add(g);
+        es.add(l);
+        ms.add(c);
+        finalStates.add(new State(es, ms));
+        es.clear();
+        ms.clear();
+
+        ms.add(h1);
+        ms.add(h2);
+        es.add(g);
+        es.add(l);
+        ms.add(c);
+        finalStates.add(new State(es, ms));
+        es.clear();
+        ms.clear();
+
+        ms.add(h1);
+        ms.add(h2);
+        es.add(g);
+        es.add(l);
+        es.add(c);
+        finalStates.add(new State(es, ms));
+        es.clear();
+        ms.clear();
+
+        ms.add(h1);
+        ms.add(h2);
+        ms.add(g);
+        es.add(l);
+        ms.add(c);
+        finalStates.add(new State(es, ms));
+        es.clear();
+        ms.clear();
+
+        ms.add(h1);
+        ms.add(h2);
+        ms.add(g);
+        es.add(l);
+        es.add(c);
+        finalStates.add(new State(es, ms));
+        es.clear();
+        ms.clear();
+
+        ms.add(h1);
+        ms.add(h2);
+        ms.add(g);
+        ms.add(l);
+        ms.add(c);
+        finalStates.add(new State(es, ms));
+        ms.clear();
+        ms.clear();
+
+    }
 
     public void load(Element e){
         if (isLoadValid(e)) {
@@ -170,7 +252,88 @@ public class Controller {
         return true;
     }
 
+    public State getElements() {
+        earthStates.clear();
+        marsStates.clear();
+
+        //human1
+        if(h1.getLocation()==0){
+            earthStates.add(h1);
+        }
+        else {
+            marsStates.add(h1);
+        }
+        //human2
+        if(h2.getLocation()==0){
+            earthStates.add(h2);
+        }
+        else {
+            marsStates.add(h2);
+        }
+        //lion
+        if(l.getLocation()==0){
+            earthStates.add(l);
+        }
+        else {
+            marsStates.add(l);
+        }
+        //grain
+        if(g.getLocation()==0){
+            earthStates.add(g);
+        }
+        else {
+            marsStates.add(g);
+        }
+        //cow
+        if(c.getLocation()==0){
+            earthStates.add(c);
+        }
+        else {
+            marsStates.add(c);
+        }
+        return new State(earthStates, marsStates);
+    }
+
+    public void displayCurrentStatePane(State state){
+        String s = "EARTH: ";
+
+        for(int i=0; i<state.getEarthElements().size(); i++){
+            s+= state.getEarthElements().get(i).getType();
+            s+= ", ";
+        }
+
+        s+= "\n MARS: ";
+
+        for(int i=0; i<state.getMarsElements().size(); i++){
+            s+= state.getMarsElements().get(i).getType();
+            s+= ", ";
+        }
+
+        Label label = new Label (s);
+        currentStatePane.setContent(label);
+    }
+
+    public void displayPrevStatePane(State state){
+        String s = "EARTH: ";
+
+        for(int i=0; i<state.getEarthElements().size(); i++){
+            s+= state.getEarthElements().get(i).getType();
+            s+= ", ";
+        }
+
+        s+= "\n MARS: ";
+
+        for(int i=0; i<state.getMarsElements().size(); i++){
+            s+= state.getMarsElements().get(i).getType();
+            s+= ", ";
+        }
+
+        Label label = new Label (s);
+        previousStatePane.setContent(label);
+    }
+
     public void launch() {
+        displayPrevStatePane(getElements());
         if (turn == 0){
             turn = 1;
             disableTravellingElements();
@@ -205,9 +368,13 @@ public class Controller {
             else {
                 alertsLabel.setText("GAME OVER!");
             }
-
-
         }
+
+        displayCurrentStatePane(getElements());
+    }
+
+    public void showHint(){
+        //AI AARON!!!
     }
 
     public boolean checkElementsInBothPlanets(){

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -8,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="768.0" style="-fx-background-color: darkblue;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="768.0" style="-fx-background-color: darkblue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
     <children>
       <ImageView fitHeight="327.0" fitWidth="339.0" layoutX="482.0" layoutY="-42.0" opacity="0.73" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -86,7 +91,7 @@
             <Image url="@../res/ufo.png" />
          </image>
       </ImageView>
-      <Button fx:id="hintButton" layoutX="425.0" layoutY="459.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="327.0" text="Solution Hint" />
+      <Button fx:id="hintButton" layoutX="425.0" layoutY="459.0" mnemonicParsing="false" onAction="#showHint" prefHeight="26.0" prefWidth="327.0" text="Solution Hint" />
       <ScrollPane fx:id="solutionPane" layoutX="425.0" layoutY="356.0" prefHeight="96.0" prefWidth="327.0" style="-fx-background-color: beige;" />
       <ScrollPane fx:id="previousStatePane" layoutX="16.0" layoutY="336.0" prefHeight="213.0" prefWidth="170.0" />
       <ScrollPane fx:id="currentStatePane" layoutX="198.0" layoutY="336.0" prefHeight="213.0" prefWidth="170.0" />
