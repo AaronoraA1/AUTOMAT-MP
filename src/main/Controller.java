@@ -177,18 +177,75 @@ public class Controller {
             moveRocketToMars();
 
             //DO CHECKING HERE FOR RESTRICTIONS WHEN LEFT ALONE WITHOUT SCIENTIST
+            if(checkElementsInBothPlanets()){
+                rocketElements[0] = null;
+                rocketElements[1] = null;
 
-            rocketElements[0] = null;
-            rocketElements[1] = null;
+                if (checkWinningState()){
+                    alertsLabel.setText("WINNER!!! -kris");
+                }
+            }
+            else {
+                alertsLabel.setText("GAME OVER!");
+            }
 
         } else {
             turn = 0;
             disableTravellingElements();
             moveRocketToEarth();
 
-            rocketElements[0] = null;
-            rocketElements[1] = null;
+            if(checkElementsInBothPlanets()){
+                rocketElements[0] = null;
+                rocketElements[1] = null;
+
+                if (checkWinningState()){
+                    alertsLabel.setText("WINNER!!! -kris");
+                }
+            }
+            else {
+                alertsLabel.setText("GAME OVER!");
+            }
+
+
         }
+    }
+
+    public boolean checkElementsInBothPlanets(){
+        boolean valid = true;
+
+        if((h1.getLocation()==1 || h2.getLocation()==1) && l.getLocation() ==1 && turn==0){
+            valid = false;
+        }
+        else if((h1.getLocation()==1 || h2.getLocation()==1) && c.getLocation() ==1 && turn==0){
+            valid = false;
+        }
+        else if(l.getLocation() ==1 && c.getLocation()==1 && turn==0){
+            valid = false;
+        }
+        else if(g.getLocation() ==1 && c.getLocation()==1 && turn==0){
+            valid = false;
+        }
+        else if((h1.getLocation()==0 || h2.getLocation()==0) && l.getLocation() ==0 && turn==1){
+            valid = false;
+        }
+        else if((h1.getLocation()==0 || h2.getLocation()==0) && c.getLocation() ==0 && turn==1){
+            valid = false;
+        }
+        else if(l.getLocation() ==0 && c.getLocation()==0 && turn==1){
+            valid = false;
+        }
+        else if(g.getLocation() ==0 && c.getLocation()==0 && turn==1){
+            valid = false;
+        }
+
+        return valid;
+
+    }
+
+    public boolean checkWinningState() {
+        return (h1.getLocation()==1  && h2.getLocation()==1 &&
+                 l.getLocation()==1  &&  g.getLocation()==1 &&
+                 c.getLocation()==1);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////// <-- GUI FUNCTIONS
