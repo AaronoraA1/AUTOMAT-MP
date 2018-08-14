@@ -294,44 +294,6 @@ public class Controller {
         return new State(earthStates, marsStates);
     }
 
-    public void displayCurrentStatePane(State state){
-        String s = "EARTH: ";
-
-        for(int i=0; i<state.getEarthElements().size(); i++){
-            s+= state.getEarthElements().get(i).getType();
-            s+= ", ";
-        }
-
-        s+= "\n MARS: ";
-
-        for(int i=0; i<state.getMarsElements().size(); i++){
-            s+= state.getMarsElements().get(i).getType();
-            s+= ", ";
-        }
-
-        Label label = new Label (s);
-        currentStatePane.setContent(label);
-    }
-
-    public void displayPrevStatePane(State state){
-        String s = "EARTH: ";
-
-        for(int i=0; i<state.getEarthElements().size(); i++){
-            s+= state.getEarthElements().get(i).getType();
-            s+= ", ";
-        }
-
-        s+= "\n MARS: ";
-
-        for(int i=0; i<state.getMarsElements().size(); i++){
-            s+= state.getMarsElements().get(i).getType();
-            s+= ", ";
-        }
-
-        Label label = new Label (s);
-        previousStatePane.setContent(label);
-    }
-
     public void launch() {
         displayPrevStatePane(getElements());
         if (turn == 0){
@@ -339,7 +301,6 @@ public class Controller {
             disableTravellingElements();
             moveRocketToMars();
 
-            //DO CHECKING HERE FOR RESTRICTIONS WHEN LEFT ALONE WITHOUT SCIENTIST
             if(checkElementsInBothPlanets()){
                 rocketElements[0] = null;
                 rocketElements[1] = null;
@@ -369,7 +330,6 @@ public class Controller {
                 alertsLabel.setText("GAME OVER!");
             }
         }
-
         displayCurrentStatePane(getElements());
     }
 
@@ -404,9 +364,7 @@ public class Controller {
         else if(g.getLocation() ==0 && c.getLocation()==0 && turn==1){
             valid = false;
         }
-
         return valid;
-
     }
 
     public boolean checkWinningState() {
@@ -430,6 +388,46 @@ public class Controller {
         transitn.setRate(4);
         transitn.setInterpolator(Interpolator.LINEAR);
         transitn.play();
+    }
+
+    public void displayPrevStatePane(State state){
+        String s = "\n EARTH : \n";
+
+        for(int i=0; i<state.getEarthElements().size(); i++){
+            s+= " "+ state.getEarthElements().get(i).getType();
+            s+= "\n";
+        }
+
+        s+= "\n MARS : \n";
+
+        for(int i=0; i<state.getMarsElements().size(); i++){
+            s+= " "+ state.getMarsElements().get(i).getType();
+            s+= "\n";
+        }
+
+        Label label = new Label (s);
+        label.setStyle("-fx-font-size: 15;");
+        previousStatePane.setContent(label);
+    }
+
+    public void displayCurrentStatePane(State state){
+        String s = "\n EARTH : \n";
+
+        for(int i=0; i<state.getEarthElements().size(); i++){
+            s+= " "+ state.getEarthElements().get(i).getType();
+            s+= "\n";
+        }
+
+        s+= "\n MARS : \n";
+
+        for(int i=0; i<state.getMarsElements().size(); i++){
+            s+= " "+ state.getMarsElements().get(i).getType();
+            s+= "\n";
+        }
+
+        Label label = new Label (s);
+        label.setStyle("-fx-font-size: 15;");
+        currentStatePane.setContent(label);
     }
 
     public void disableTravellingElements(){
