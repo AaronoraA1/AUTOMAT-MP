@@ -86,7 +86,7 @@
             <Image url="@../res/ufo.png" />
          </image>
       </ImageView>
-      <Button fx:id="hintButton" layoutX="425.0" layoutY="459.0" mnemonicParsing="false" onAction="#showHint" prefHeight="26.0" prefWidth="327.0" text="Solution Hint" />
+      <Button fx:id="hintButton" layoutX="425.0" layoutY="459.0" mnemonicParsing="false" onAction="#getHint" prefHeight="26.0" prefWidth="327.0" text="Solution Hint" />
       <ScrollPane fx:id="solutionPane" layoutX="425.0" layoutY="356.0" prefHeight="96.0" prefWidth="327.0" style="-fx-background-color: beige;" />
       <ScrollPane fx:id="previousStatePane" layoutX="33.0" layoutY="336.0" prefHeight="213.0" prefWidth="137.0" />
       <ScrollPane fx:id="currentStatePane" layoutX="194.0" layoutY="336.0" prefHeight="213.0" prefWidth="137.0" />
