@@ -36,6 +36,8 @@ public class Controller {
     @FXML
     ScrollPane solutionPane;
     @FXML
+    ScrollPane hintPane;
+    @FXML
     Button hintButton;
 
     @FXML
@@ -341,7 +343,7 @@ public class Controller {
         displayCurrentStatePane(getElements());
     }
 
-    public void getHint(){
+    public void getSolution(){
         System.out.println("GETTING HINT");
         State currentState = getElements();
 
@@ -384,12 +386,29 @@ public class Controller {
             }
             if(lock1 && lock2){
                 System.out.println("SHOWING LOCK");
-                displayHint(finalStates.get(i + 1));
+                displaySolution(finalStates.get(i + 1));
                 break;
             }
         }
 
     }
+    public void getHint(){
+        State currentState = getElements();
+
+        if(turn == 0){
+
+
+        }
+        else if(turn == 1){
+
+
+
+        }
+
+    }
+//    public boolean isPlanetValid(ArrayList planetList){
+//
+//    }
 
     public boolean checkElementsInBothPlanets(){
         boolean valid = true;
@@ -431,17 +450,23 @@ public class Controller {
 
     public void moveRocketToMars(){
         TranslateTransition transitn = new TranslateTransition(Duration.millis(4000), scientistSpaceship);
+        TranslateTransition transitn2 = new TranslateTransition(Duration.millis(4000), launchButton);
         transitn.setByX(260);
+        transitn2.setByX(260);
         transitn.setRate(4);
-        transitn.setInterpolator(Interpolator.LINEAR);
+        transitn2.setRate(4);
         transitn.play();
+        transitn2.play();
     }
     public void moveRocketToEarth(){
         TranslateTransition transitn = new TranslateTransition(Duration.millis(4000), scientistSpaceship);
+        TranslateTransition transitn2 = new TranslateTransition(Duration.millis(4000), launchButton);
         transitn.setByX(-260);
+        transitn2.setByX(-260);
         transitn.setRate(4);
-        transitn.setInterpolator(Interpolator.LINEAR);
+        transitn2.setRate(4);
         transitn.play();
+        transitn2.play();
     }
 
     public void displayPrevStatePane(State state){
@@ -483,7 +508,7 @@ public class Controller {
         label.setStyle("-fx-font-size: 15;");
         currentStatePane.setContent(label);
     }
-    public void displayHint(State state){
+    public void displaySolution(State state){
         String s = "\n EARTH : \n";
 
         for(int i=0; i<state.getEarthElements().size(); i++){
