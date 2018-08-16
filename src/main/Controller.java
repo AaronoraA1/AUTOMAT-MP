@@ -13,6 +13,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Controller {
 
@@ -34,6 +35,8 @@ public class Controller {
 
     @FXML
     ScrollPane solutionPane;
+    @FXML
+    ScrollPane hintPane;
     @FXML
     Button hintButton;
 
@@ -70,6 +73,7 @@ public class Controller {
         marsGrainButton.setDisable(true);
 
         initButtons();
+        initFinalStates();
     }
 
     private void initButtons() {
@@ -139,77 +143,83 @@ public class Controller {
         ArrayList<Element> es = new ArrayList<Element>();
         ArrayList<Element> ms = new ArrayList<Element>();
 
+        System.out.println("INITIALIZE");
+
         es.add(h1);
         es.add(h2);
         es.add(l);
         es.add(c);
         es.add(g);
-        finalStates.add(new State(es, ms));
-        es.clear();
-        ms.clear();
+        finalStates.add(new State(es,ms));
 
-        es.add(h1);
-        es.add(h2);
-        es.add(g);
-        ms.add(l);
-        ms.add(c);
-        finalStates.add(new State(es, ms));
-        es.clear();
-        ms.clear();
+        ArrayList<Element> es2 = new ArrayList<Element>();
+        ArrayList<Element> ms2 = new ArrayList<Element>();
 
-        es.add(h1);
-        es.add(h2);
-        es.add(g);
-        es.add(l);
-        ms.add(c);
-        finalStates.add(new State(es, ms));
-        es.clear();
-        ms.clear();
+        es2.add(h1);
+        es2.add(h2);
+        es2.add(g);
+        ms2.add(l);
+        ms2.add(c);
+        finalStates.add(new State(es2,ms2));
 
-        ms.add(h1);
-        ms.add(h2);
-        es.add(g);
-        es.add(l);
-        ms.add(c);
-        finalStates.add(new State(es, ms));
-        es.clear();
-        ms.clear();
+        ArrayList<Element> es3 = new ArrayList<Element>();
+        ArrayList<Element> ms3 = new ArrayList<Element>();
 
-        ms.add(h1);
-        ms.add(h2);
-        es.add(g);
-        es.add(l);
-        es.add(c);
-        finalStates.add(new State(es, ms));
-        es.clear();
-        ms.clear();
+        es3.add(h1);
+        es3.add(h2);
+        es3.add(g);
+        es3.add(l);
+        ms3.add(c);
+        finalStates.add(new State(es3, ms3));
 
-        ms.add(h1);
-        ms.add(h2);
-        ms.add(g);
-        es.add(l);
-        ms.add(c);
-        finalStates.add(new State(es, ms));
-        es.clear();
-        ms.clear();
 
-        ms.add(h1);
-        ms.add(h2);
-        ms.add(g);
-        es.add(l);
-        es.add(c);
-        finalStates.add(new State(es, ms));
-        es.clear();
-        ms.clear();
+        ArrayList<Element> es4 = new ArrayList<Element>();
+        ArrayList<Element> ms4 = new ArrayList<Element>();
+        ms4.add(h1);
+        ms4.add(h2);
+        es4.add(g);
+        es4.add(l);
+        ms4.add(c);
+        finalStates.add(new State(es4, ms4));
 
-        ms.add(h1);
-        ms.add(h2);
-        ms.add(g);
-        ms.add(l);
-        ms.add(c);
-        finalStates.add(new State(es, ms));
-        ms.clear();
-        ms.clear();
+        ArrayList<Element> es5 = new ArrayList<Element>();
+        ArrayList<Element> ms5 = new ArrayList<Element>();
+        ms5.add(h1);
+        ms5.add(h2);
+        es5.add(g);
+        es5.add(l);
+        es5.add(c);
+        finalStates.add(new State(es5, ms5));
+
+        ArrayList<Element> es6 = new ArrayList<Element>();
+        ArrayList<Element> ms6 = new ArrayList<Element>();
+        ms6.add(h1);
+        ms6.add(h2);
+        ms6.add(g);
+        es6.add(l);
+        ms6.add(c);
+        finalStates.add(new State(es6, ms6));
+
+
+        ArrayList<Element> es7 = new ArrayList<Element>();
+        ArrayList<Element> ms7 = new ArrayList<Element>();
+        ms7.add(h1);
+        ms7.add(h2);
+        ms7.add(g);
+        es7.add(l);
+        es7.add(c);
+        finalStates.add(new State(es7, ms7));
+
+        ArrayList<Element> es8 = new ArrayList<Element>();
+        ArrayList<Element> ms8 = new ArrayList<Element>();
+        ms8.add(h1);
+        ms8.add(h2);
+        ms8.add(g);
+        ms8.add(l);
+        ms8.add(c);
+        finalStates.add(new State(es8, ms8));
+
+
 
     }
 
@@ -294,44 +304,6 @@ public class Controller {
         return new State(earthStates, marsStates);
     }
 
-    public void displayCurrentStatePane(State state){
-        String s = "EARTH: ";
-
-        for(int i=0; i<state.getEarthElements().size(); i++){
-            s+= state.getEarthElements().get(i).getType();
-            s+= ", ";
-        }
-
-        s+= "\n MARS: ";
-
-        for(int i=0; i<state.getMarsElements().size(); i++){
-            s+= state.getMarsElements().get(i).getType();
-            s+= ", ";
-        }
-
-        Label label = new Label (s);
-        currentStatePane.setContent(label);
-    }
-
-    public void displayPrevStatePane(State state){
-        String s = "EARTH: ";
-
-        for(int i=0; i<state.getEarthElements().size(); i++){
-            s+= state.getEarthElements().get(i).getType();
-            s+= ", ";
-        }
-
-        s+= "\n MARS: ";
-
-        for(int i=0; i<state.getMarsElements().size(); i++){
-            s+= state.getMarsElements().get(i).getType();
-            s+= ", ";
-        }
-
-        Label label = new Label (s);
-        previousStatePane.setContent(label);
-    }
-
     public void launch() {
         displayPrevStatePane(getElements());
         if (turn == 0){
@@ -339,7 +311,6 @@ public class Controller {
             disableTravellingElements();
             moveRocketToMars();
 
-            //DO CHECKING HERE FOR RESTRICTIONS WHEN LEFT ALONE WITHOUT SCIENTIST
             if(checkElementsInBothPlanets()){
                 rocketElements[0] = null;
                 rocketElements[1] = null;
@@ -369,13 +340,75 @@ public class Controller {
                 alertsLabel.setText("GAME OVER!");
             }
         }
-
         displayCurrentStatePane(getElements());
     }
 
-    public void showHint(){
-        //AI AARON!!!
+    public void getSolution(){
+        System.out.println("GETTING HINT");
+        State currentState = getElements();
+
+        int i;
+        System.out.println(finalStates.size());
+        for(i = 0; i<finalStates.size(); i++){
+            boolean lock1 =false;
+            boolean lock2 = false;
+            if(i == 0){
+                lock2 =true;
+            }
+            System.out.println("ITERATING " + i);
+
+            System.out.println(finalStates.get(i).getEarthElements().size());
+            System.out.println(finalStates.get(i).getMarsElements().size());
+
+            if(currentState.getEarthElements().size() == finalStates.get(i).getEarthElements().size()) {
+                for (int j = 0; j < currentState.getEarthElements().size(); j++) {
+                    if (!finalStates.get(i).getEarthElements().contains(currentState.getEarthElements().get(j))) {
+                        lock1 = false;
+                        System.out.println("LOCK 1 FALSE");
+                        break;
+                    } else {
+                        lock1 = true;
+                        System.out.println("LOCK 1 TRUE");
+                    }
+                }
+            }
+            if(currentState.getMarsElements().size() == finalStates.get(i).getMarsElements().size()) {
+                for (int j = 0; j < currentState.getMarsElements().size(); j++) {
+                    if (!finalStates.get(i).getMarsElements().contains(currentState.getMarsElements().get(j))) {
+                        lock2 = false;
+                        System.out.println("LOCK 2 FALSE");
+                        break;
+                    } else {
+                        lock2 = true;
+                        System.out.println("LOCK 2 TRUE");
+                    }
+                }
+            }
+            if(lock1 && lock2){
+                System.out.println("SHOWING LOCK");
+                displaySolution(finalStates.get(i + 1));
+                break;
+            }
+        }
+
     }
+    public void getHint(){
+        State currentState = getElements();
+
+        if(turn == 0){
+
+
+        }
+        else if(turn == 1){
+
+
+
+        }
+
+    }
+//    public boolean isPlanetValid(ArrayList planetList){
+//
+//    }
 
     public boolean checkElementsInBothPlanets(){
         boolean valid = true;
@@ -404,9 +437,7 @@ public class Controller {
         else if(g.getLocation() ==0 && c.getLocation()==0 && turn==1){
             valid = false;
         }
-
         return valid;
-
     }
 
     public boolean checkWinningState() {
@@ -419,17 +450,82 @@ public class Controller {
 
     public void moveRocketToMars(){
         TranslateTransition transitn = new TranslateTransition(Duration.millis(4000), scientistSpaceship);
+        TranslateTransition transitn2 = new TranslateTransition(Duration.millis(4000), launchButton);
         transitn.setByX(260);
+        transitn2.setByX(260);
         transitn.setRate(4);
-        transitn.setInterpolator(Interpolator.LINEAR);
+        transitn2.setRate(4);
         transitn.play();
+        transitn2.play();
     }
     public void moveRocketToEarth(){
         TranslateTransition transitn = new TranslateTransition(Duration.millis(4000), scientistSpaceship);
+        TranslateTransition transitn2 = new TranslateTransition(Duration.millis(4000), launchButton);
         transitn.setByX(-260);
+        transitn2.setByX(-260);
         transitn.setRate(4);
-        transitn.setInterpolator(Interpolator.LINEAR);
+        transitn2.setRate(4);
         transitn.play();
+        transitn2.play();
+    }
+
+    public void displayPrevStatePane(State state){
+        String s = "\n EARTH : \n";
+
+        for(int i=0; i<state.getEarthElements().size(); i++){
+            s+= " "+ state.getEarthElements().get(i).getType();
+            s+= "\n";
+        }
+
+        s+= "\n MARS : \n";
+
+        for(int i=0; i<state.getMarsElements().size(); i++){
+            s+= " "+ state.getMarsElements().get(i).getType();
+            s+= "\n";
+        }
+
+        Label label = new Label (s);
+        label.setStyle("-fx-font-size: 15;");
+        previousStatePane.setContent(label);
+    }
+
+    public void displayCurrentStatePane(State state){
+        String s = "\n EARTH : \n";
+
+        for(int i=0; i<state.getEarthElements().size(); i++){
+            s+= " "+ state.getEarthElements().get(i).getType();
+            s+= "\n";
+        }
+
+        s+= "\n MARS : \n";
+
+        for(int i=0; i<state.getMarsElements().size(); i++){
+            s+= " "+ state.getMarsElements().get(i).getType();
+            s+= "\n";
+        }
+
+        Label label = new Label (s);
+        label.setStyle("-fx-font-size: 15;");
+        currentStatePane.setContent(label);
+    }
+    public void displaySolution(State state){
+        String s = "\n EARTH : \n";
+
+        for(int i=0; i<state.getEarthElements().size(); i++){
+            s+= " "+ state.getEarthElements().get(i).getType();
+            s+= "\n";
+        }
+
+        s+= "\n MARS : \n";
+
+        for(int i=0; i<state.getMarsElements().size(); i++){
+            s+= " "+ state.getMarsElements().get(i).getType();
+            s+= "\n";
+        }
+
+        Label label = new Label (s);
+        label.setStyle("-fx-font-size: 15;");
+        solutionPane.setContent(label);
     }
 
     public void disableTravellingElements(){

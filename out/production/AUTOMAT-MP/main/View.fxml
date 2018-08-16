@@ -20,7 +20,6 @@
             <Image url="@../res/planet-earth.png" />
          </image>
       </ImageView>
-        <Button fx:id="launchButton" layoutX="638.0" layoutY="507.0" mnemonicParsing="false" onAction="#launch" prefHeight="41.0" prefWidth="114.0" text="Launch" />
       <ImageView fx:id="earthHuman1Pic" fitHeight="83.0" fitWidth="61.0" layoutX="20.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/man.png" />
@@ -86,34 +85,42 @@
             <Image url="@../res/ufo.png" />
          </image>
       </ImageView>
-      <Button fx:id="hintButton" layoutX="425.0" layoutY="459.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="327.0" text="Solution Hint" />
-      <ScrollPane fx:id="solutionPane" layoutX="425.0" layoutY="356.0" prefHeight="96.0" prefWidth="327.0" style="-fx-background-color: beige;" />
-      <ScrollPane fx:id="previousStatePane" layoutX="16.0" layoutY="336.0" prefHeight="213.0" prefWidth="170.0" />
-      <ScrollPane fx:id="currentStatePane" layoutX="198.0" layoutY="336.0" prefHeight="213.0" prefWidth="170.0" />
+      <Button fx:id="hintButton" layoutX="351.0" layoutY="351.0" mnemonicParsing="false" onAction="#getSolution" prefHeight="26.0" prefWidth="71.0" text="Solution" />
+      <ScrollPane fx:id="previousStatePane" layoutX="33.0" layoutY="336.0" prefHeight="213.0" prefWidth="137.0" />
+      <ScrollPane fx:id="currentStatePane" layoutX="194.0" layoutY="336.0" prefHeight="213.0" prefWidth="137.0" />
       <Label layoutX="40.0" layoutY="307.0" text="Previous State" textFill="WHITE">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="223.0" layoutY="306.0" text="Current State" textFill="WHITE">
+      <Label layoutX="204.0" layoutY="306.0" text="Current State" textFill="WHITE">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="alertsLabel" layoutX="426.0" layoutY="519.0" prefHeight="30.0" prefWidth="208.0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="alertsLabel" layoutX="241.0" layoutY="38.0" prefHeight="30.0" prefWidth="208.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="547.0" layoutY="323.0" text="Solution" textFill="WHITE">
+      <Label layoutX="478.0" layoutY="306.0" text="Solution" textFill="WHITE">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="426.0" layoutY="499.0" text="Loaded in Rocket :" textFill="WHITE">
+      <Label layoutX="202.0" layoutY="14.0" text="Loaded in Rocket :" textFill="WHITE">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
+      <ScrollPane fx:id="solutionPane" layoutX="443.0" layoutY="336.0" prefHeight="213.0" prefWidth="137.0" />
+      <ScrollPane fx:id="hintPane" layoutX="602.0" layoutY="337.0" prefHeight="213.0" prefWidth="137.0" />
+      <Label layoutX="650.0" layoutY="307.0" text="Hint" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="351.0" layoutY="388.0" mnemonicParsing="false" onAction="#getHint" prefHeight="26.0" prefWidth="71.0" text="Solution" />
+        <Button fx:id="launchButton" layoutX="169.0" layoutY="174.0" mnemonicParsing="false" onAction="#launch" opacity="0.0" prefHeight="60.0" prefWidth="84.0" />
     </children>
 </AnchorPane>
