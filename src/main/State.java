@@ -12,7 +12,6 @@ public class State {
         marsElements = m;
     }
 
-
     public ArrayList<Element> getEarthElements() {
         return earthElements;
     }
@@ -20,8 +19,6 @@ public class State {
     public void setEarthElements(ArrayList<Element> earthElements) {
         this.earthElements = earthElements;
     }
-
-
 
     public ArrayList<Element> getMarsElements() {
         return marsElements;

@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added hint solution">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$1.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$10.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$10.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$2.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$3.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$4.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$4.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$5.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$5.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$6.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$6.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$7.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$7.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$8.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$8.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$9.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller$9.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller.class" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/Controller.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/View.fxml" afterPath="$PROJECT_DIR$/out/production/AUTOMAT-MP/main/View.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controller.java" afterPath="$PROJECT_DIR$/src/main/Controller.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/State.java" afterPath="$PROJECT_DIR$/src/main/State.java" />
       <change beforePath="$PROJECT_DIR$/src/main/View.fxml" afterPath="$PROJECT_DIR$/src/main/View.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -100,8 +87,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1262">
-              <caret line="466" column="29" lean-forward="false" selection-start-line="466" selection-start-column="29" selection-end-line="466" selection-end-column="29" />
+            <state relative-caret-position="245">
+              <caret line="357" column="42" lean-forward="false" selection-start-line="357" selection-start-column="42" selection-end-line="357" selection-end-column="42" />
               <folding>
                 <element signature="e#1445#1452#0" expanded="true" />
                 <element signature="e#1513#1522#0" expanded="true" />
@@ -150,8 +137,8 @@
       <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/State.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state relative-caret-position="272">
+              <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -200,8 +187,8 @@
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/main/Spaceship.java" />
         <option value="$PROJECT_DIR$/src/main/Element.java" />
-        <option value="$PROJECT_DIR$/src/main/State.java" />
         <option value="$PROJECT_DIR$/src/main/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/State.java" />
       </list>
     </option>
   </component>
@@ -221,7 +208,7 @@
     <packageJsonPaths />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1370" />
@@ -482,7 +469,7 @@
     <option name="totallyTimeSpent" value="11877000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -496,7 +483,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18167938" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.097709924" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -536,7 +523,16 @@
     <option name="LAST_COMMIT_MESSAGE" value="added hint solution" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Controller.java</url>
+          <line>371</line>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -892,16 +888,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="272">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1262">
-          <caret line="466" column="29" lean-forward="false" selection-start-line="466" selection-start-column="29" selection-end-line="466" selection-end-column="29" />
+        <state relative-caret-position="245">
+          <caret line="357" column="42" lean-forward="false" selection-start-line="357" selection-start-column="42" selection-end-line="357" selection-end-column="42" />
           <folding>
             <element signature="e#1445#1452#0" expanded="true" />
             <element signature="e#1513#1522#0" expanded="true" />
