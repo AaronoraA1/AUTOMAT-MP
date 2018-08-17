@@ -5,6 +5,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -46,11 +47,23 @@ public class Controller {
     Button launchButton;
 
     public int turn = 0; // CURRENT LOCATION : 0 = EARTH, 1 = MARS
+    public int BFSturn = 0; // CURRENT LOCATION : 0 = EARTH, 1 = MARS
     public Element[] rocketElements = new Element[2]; // SCIENTIST ASSUMED TO BE ONBOARD ALREADY
     public Element h1, h2, l, c, g; // ALL ELEMENTS
     public ArrayList<State> finalStates = new ArrayList<State>();
     public ArrayList<Element> earthStates = new ArrayList<Element>();
     public ArrayList<Element> marsStates = new ArrayList<Element>();
+    public ArrayList<String> removeListMars = new ArrayList<String>();
+    public ArrayList<String> removeListEarth = new ArrayList<String>();
+
+
+    /*-----------------------BFS ELEMENTS-----------------------------------*/
+    public ArrayList<SearchNode> queueList = new ArrayList<SearchNode>();
+    public ArrayList<SearchNode> nodeList = new ArrayList<SearchNode>();
+    public ArrayList<SearchNode> solutionList;
+    //public ArrayList<SearchNode>
+    public String[] possibleMoves = {"HP", "HL", "HC", "HG", "LC", "LG", "CG", "PL", "PC", "PG", "H", "P", "C", "L", "G"};
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -76,6 +89,461 @@ public class Controller {
         initFinalStates();
     }
 
+
+    /////////////////////////////////BFS FUNCTIONS////////////////////////////////////////
+    public void BFSSearch(){
+
+
+        boolean winner = false;
+        System.out.println("SEARCHING FOR SOLUTION");
+        reset();
+        turn = 0;
+        marsStates.clear();
+        earthStates.clear();
+
+
+        solutionList = new ArrayList<SearchNode>();
+
+        SearchNode rootNode = new SearchNode(finalStates.get(0));
+        nodeList.add(rootNode);
+
+        queueList.add(rootNode);
+
+        System.out.println("QUEUE SIZE : " + queueList.size());
+        int i =0;
+        while(!queueList.isEmpty()){
+            System.out.println("-------------------------------------------------------NEXT DEPTH-------------------------------------------------------");
+
+
+            System.out.println("WINNING STATES SO FAR: " + solutionList.size());
+            if(solutionList.size()>0) {
+                System.out.println("WINNING STATE: ");
+                solutionList.get(0).getState().printState();
+            }
+
+
+
+            SearchNode currNode = queueList.remove(0);
+            System.out.println("QUEUE SIZE : " + queueList.size());
+            System.out.println("DEPTH: " + currNode.getDepth() + " STATES: ");
+            currNode.getState().printState();
+
+            if(winner)
+                break;
+
+            for(String x : possibleMoves){
+                System.out.println("------------------------------NEXT POSSIBLE MOVE--------------------------------------");
+
+
+//                State tempState = new State(currNode.getState().getEarthElements(), currNode.getState().getMarsElements(), turn);
+
+                System.out.println("CHECKING MOVE : " + x);
+                State nextState = new State();
+                nextState = isMovePossible(x, currNode.getState());
+
+
+//                System.out.println("NEXT STATE: "  );
+//                nextState.printState();
+
+
+                if(nextState !=null && checkState(nextState)){
+                    System.out.println("STATE IS ACCEPTABLE");
+                    SearchNode child = new SearchNode(nextState);
+
+
+                    child.setDepth(currNode.getDepth() + 1);
+                    child.setParent(currNode);
+
+                    //check if ancestor
+
+                    if(!isAncestor(child)) {
+                        System.out.println("ANCESTOR IS ACCEPTABLE");
+                        currNode.getChildren().add(child);
+                        i++;
+                        System.out.println("NUMBER OF NODES " + i);
+                        nodeList.add(child);
+
+                        if (checkIfStateIsWin(child)) {
+                            System.out.println("Solution has been found");
+                            solutionList.add(child);
+                            winner = true;
+
+                        } else {
+                            queueList.add(child);
+                            System.out.println("Adding State");
+                        }
+
+                    }
+                }
+
+            }
+            i++;
+
+
+        }
+    }
+
+    public boolean isAncestor(SearchNode child) {
+        boolean lock1 = false;
+        boolean lock2 = false;
+        boolean lock3 = false;
+
+        for(int j=0; j<nodeList.size(); j++){
+            for (int i = 0; i < child.getState().getMarsElements().size(); i++) {
+                if (nodeList.get(j).getState().getMarsElements().contains(child.getState().getMarsElements().get(i))) {
+                    lock1 = true;
+                } else {
+                    lock1 = false;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < child.getState().getEarthElements().size(); i++) {
+                if (nodeList.get(j).getState().getEarthElements().contains(child.getState().getEarthElements().get(i))) {
+                    lock2 = true;
+                } else {
+                    lock2 = false;
+                    break;
+                }
+            }
+
+            if(nodeList.get(j).getState().getTurn() == child.getState().getTurn()){
+                lock3 = true;
+            }
+            else
+                lock3 = false;
+
+
+        }
+        if (lock1 && lock2 && lock3) {
+            return true;
+        } else
+            return false;
+
+    }
+
+    public boolean checkIfStateIsWin(SearchNode c){
+        if(c.getState().getEarthElements().isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+    //////FIX////////
+    public boolean checkIfPresentEarth(State s, String str) {
+//        System.out.println("Elements in Earth: "+s.getEarthElements().size());
+
+        for(int i=0; i<s.getEarthElements().size(); i++){
+//            System.out.println(s.getEarthElements().get(i).getType());
+            if(s.getEarthElements().get(i).getType().equalsIgnoreCase(str))
+                return true;
+        }
+
+        return false;
+    }
+
+    public boolean checkIfPresentMars(State s, String str) {
+//        System.out.println("Elements in Mars: "+s.getMarsElements().size());
+
+        for(int i=0; i<s.getMarsElements().size(); i++){
+//            System.out.println(s.getMarsElements().get(i).getType());
+
+            if(s.getMarsElements().get(i).getType().equalsIgnoreCase(str))
+                return true;
+        }
+        return false;
+    }
+
+
+    public boolean checkState(State s){
+        System.out.println("NEXT STATE: "  );
+        s.printState();
+        System.out.println("                                  BFSturn : "+BFSturn);
+        boolean valid = true;
+
+        //HL
+        //HC
+        //LC
+        //LG
+
+        if(((checkIfPresentEarth(s, "Human 1") || checkIfPresentEarth(s, "Human 2")) && checkIfPresentEarth(s, "Lion") && BFSturn ==1) ||
+           ((checkIfPresentEarth(s, "Human 1") || checkIfPresentEarth(s, "Human 2")) && checkIfPresentEarth(s, "Lion") && BFSturn ==1 && checkIfPresentEarth(s, "Cow")) ||
+           ((checkIfPresentEarth(s, "Human 1") || checkIfPresentEarth(s, "Human 2")) && checkIfPresentEarth(s, "Lion") && BFSturn ==1 && checkIfPresentEarth(s, "Grain"))){
+            System.out.println("                             hl earth");
+            valid = false;
+        }
+        else if(((checkIfPresentEarth(s, "Human 1") || checkIfPresentEarth(s, "Human 2")) && checkIfPresentEarth(s, "Cow")  && BFSturn ==1) ||
+                ((checkIfPresentEarth(s, "Human 1") || checkIfPresentEarth(s, "Human 2")) && checkIfPresentEarth(s, "Lion") && BFSturn ==1 && checkIfPresentEarth(s, "Lion")) ||
+                ((checkIfPresentEarth(s, "Human 1") || checkIfPresentEarth(s, "Human 2")) && checkIfPresentEarth(s, "Cow")  && BFSturn ==1 && checkIfPresentEarth(s, "Grain"))){
+            System.out.println("                             hc earth");
+
+            valid = false;
+        }
+        else if((checkIfPresentEarth(s, "Lion") && checkIfPresentEarth(s, "Cow") && BFSturn ==1) ||
+                (checkIfPresentEarth(s, "Lion") && checkIfPresentEarth(s, "Cow") && BFSturn ==1 && checkIfPresentEarth(s, "Human 1")) ||
+                (checkIfPresentEarth(s, "Lion") && checkIfPresentEarth(s, "Cow") && BFSturn ==1 && checkIfPresentEarth(s, "Grain"))){
+            System.out.println("                             lc earth");
+
+            valid = false;
+        }
+        else if((checkIfPresentEarth(s, "Grain") && checkIfPresentEarth(s, "Cow") && BFSturn ==1) ||
+                (checkIfPresentEarth(s, "Grain") && checkIfPresentEarth(s, "Cow") && BFSturn ==1 && checkIfPresentEarth(s, "Human 1")) ||
+                (checkIfPresentEarth(s, "Grain") && checkIfPresentEarth(s, "Cow") && BFSturn ==1 && checkIfPresentEarth(s, "Human 2")) ||
+                (checkIfPresentEarth(s, "Grain") && checkIfPresentEarth(s, "Cow") && BFSturn ==1 && checkIfPresentEarth(s, "Lion"))){
+            System.out.println("                             gc earth");
+
+            valid = false;
+        }
+
+        //--------------------------------------------------GRAIN-------------------------------------------------
+        else if(((checkIfPresentMars(s, "Human 1") || checkIfPresentMars(s, "Human 2")) && checkIfPresentMars(s, "Lion") && BFSturn ==0) ||
+                ((checkIfPresentMars(s, "Human 1") || checkIfPresentMars(s, "Human 2")) && checkIfPresentMars(s, "Lion") && BFSturn ==0 && checkIfPresentMars(s, "Cow")) ||
+                ((checkIfPresentMars(s, "Human 1") || checkIfPresentMars(s, "Human 2")) && checkIfPresentMars(s, "Lion") && BFSturn ==0 && checkIfPresentMars(s, "Grain"))){
+            System.out.println("                             hl mars");
+
+            valid = false;
+        }
+        else if(((checkIfPresentMars(s, "Human 1") || checkIfPresentMars(s, "Human 2")) && checkIfPresentMars(s, "Cow")  && BFSturn ==0) ||
+                ((checkIfPresentMars(s, "Human 1") || checkIfPresentMars(s, "Human 2")) && checkIfPresentMars(s, "Lion") && BFSturn ==0 && checkIfPresentMars(s, "Lion")) ||
+                ((checkIfPresentMars(s, "Human 1") || checkIfPresentMars(s, "Human 2")) && checkIfPresentMars(s, "Cow")  && BFSturn ==0 && checkIfPresentMars(s, "Grain"))){
+                        System.out.println("                             hc mars");
+
+            valid = false;
+        }
+        else if((checkIfPresentMars(s, "Lion") && checkIfPresentMars(s, "Cow") && BFSturn ==0) ||
+                (checkIfPresentMars(s, "Lion") && checkIfPresentMars(s, "Cow") && BFSturn ==0 && checkIfPresentMars(s, "Human 1")) ||
+                (checkIfPresentMars(s, "Lion") && checkIfPresentMars(s, "Cow") && BFSturn ==0 && checkIfPresentMars(s, "Grain"))){
+            System.out.println("                             lc mars");
+
+            valid = false;
+        }
+        else if((checkIfPresentMars(s, "Grain") && checkIfPresentMars(s, "Cow") && BFSturn ==0) ||
+                (checkIfPresentMars(s, "Grain") && checkIfPresentMars(s, "Cow") && BFSturn ==0 && checkIfPresentMars(s, "Human 1")) ||
+                (checkIfPresentMars(s, "Grain") && checkIfPresentMars(s, "Cow") && BFSturn ==0 && checkIfPresentMars(s, "Human 2")) ||
+                (checkIfPresentMars(s, "Grain") && checkIfPresentMars(s, "Cow") && BFSturn ==0 && checkIfPresentMars(s, "Lion"))){
+            System.out.println("                             gc mars");
+
+            valid = false;
+        }
+        System.out.println("                                  valid : "+valid);
+
+        return valid;
+
+    }
+
+    public State isMovePossible(String x, State s){
+        Element firstElement = null;
+        Element secondElement = null;
+
+        boolean lock1=false;
+        boolean lock2=false;
+
+
+
+        ArrayList<Element> tempEarthList = new ArrayList<Element>();
+        ArrayList<Element> tempMarsList = new ArrayList<Element>();
+
+        for(int i=0; i< s.getEarthElements().size(); i++){
+            tempEarthList.add(s.getEarthElements().get(i));
+        }
+
+        for(int i=0; i< s.getMarsElements().size(); i++){
+            tempMarsList.add(s.getMarsElements().get(i));
+        }
+
+        State tempState = new State(tempEarthList, tempMarsList, s.getTurn());
+
+        int tempTurn = s.getTurn();
+
+
+        for(int i = 0; i < 6; i++){
+            if(x.charAt(0) == 'H'){
+                firstElement = new Element("Human 1", 0);
+            }
+            else if(x.charAt(0) == 'P'){
+                firstElement = new Element("Human 2", 0);
+            }
+            else if(x.charAt(0) == 'L'){
+                firstElement = new Element("Lion", 0);
+            }
+            else if(x.charAt(0) == 'C'){
+                firstElement = new Element("Cow", 0);
+            }
+            else if(x.charAt(0) == 'G'){
+                firstElement = new Element("Grain", 0);
+            }
+        }
+        if(x.length() > 1) {
+            for (int i = 0; i < 6; i++) {
+                if (x.charAt(1) == 'H') {
+                    secondElement = new Element("Human 1", 0);
+                } else if (x.charAt(1) == 'P') {
+                    secondElement = new Element("Human 2", 0);
+                } else if (x.charAt(1) == 'L') {
+                    secondElement = new Element("Lion", 0);
+                } else if (x.charAt(1) == 'C') {
+                    secondElement = new Element("Cow", 0);
+                } else if (x.charAt(1) == 'G') {
+                    secondElement = new Element("Grain", 0);
+                }
+            }
+        }
+        else
+            secondElement = new Element("MGABOBO", 0);
+
+
+
+
+        System.out.println("isMovePossible FIRST ELEMENT: " + firstElement.getType());
+        System.out.println("isMovePossible SECOND ELEMENT: " + secondElement.getType());
+
+
+
+        if(tempTurn ==0){
+            tempTurn = 1;
+
+            for(int i = 0; i<tempState.getEarthElements().size(); i++) {
+                if (firstElement.getType() == tempState.getEarthElements().get(i).getType()) {
+                    Element e = tempState.getEarthElements().get(i);
+                    tempState.getMarsElements().add(e);
+                    System.out.println("isMovePossible - EARTH -> MARS: " + e.getType());
+                    System.out.println("REMOVE INDEX: " + i);
+                    removeListEarth.add(tempState.getEarthElements().get(i).getType());
+                    lock1 = true;
+                    break;
+                } else
+                    lock1 = false;
+            }
+
+
+            if(secondElement.getType().compareToIgnoreCase("mgabobo") != 0) {
+                for (int i = 0; i < tempState.getEarthElements().size(); i++) {
+                    if (secondElement.getType() == tempState.getEarthElements().get(i).getType()) {
+                        Element e = tempState.getEarthElements().get(i);
+                        tempState.getMarsElements().add(e);
+                        System.out.println("isMovePossible - EARTH -> MARS: " + e.getType());
+                        System.out.println("REMOVE INDEX: " + i);
+                        removeListEarth.add(tempState.getEarthElements().get(i).getType());
+                        lock2 = true;
+                        break;
+
+                    } else
+                        lock2 = false;
+                }
+            }
+
+//            int count = removeList.size();
+//            for(int i = 0; i < count; i++){
+//                System.out.println("removed: " + earthStates.remove(removeList.get(i)));
+//            }
+
+            for(int i = 0; i < removeListEarth.size(); i++){
+                int index = getEarthElementFromType(removeListEarth.get(i), tempState);
+//                System.out.println("ELEMENTS:" + tempState.getEarthElements().get(i).getType());
+//                System.out.println("INDEX: " + (index));
+//                System.out.println("DELETED:     "+tempState.getEarthElements().get(index));
+
+                if (index!=-1){
+                    tempState.getEarthElements().remove(index);
+                }
+            }
+
+            removeListEarth.clear();
+
+        }
+        else {
+            tempTurn = 0;
+
+
+            for(int i = 0; i<tempState.getMarsElements().size(); i++) {
+                if (firstElement.getType() == tempState.getMarsElements().get(i).getType()) {
+                    Element e = tempState.getMarsElements().get(i);
+                    tempState.getEarthElements().add(e);
+                    System.out.println("isMovePossible - MARS -> EARTH: " + e.getType());
+                    removeListMars.add(tempState.getMarsElements().get(i).getType());
+                    lock1 = true;
+                    break;
+                } else
+                    lock1 = false;
+
+            }
+
+            if(secondElement != null) {
+                for (int i = 0; i < tempState.getMarsElements().size(); i++) {
+                    if (secondElement.getType() == tempState.getMarsElements().get(i).getType()) {
+                        Element e = tempState.getMarsElements().get(i);
+                        tempState.getEarthElements().add(e);
+                        System.out.println("isMovePossible - MARS -> EARTH: " + e.getType());
+                        removeListMars.add(tempState.getMarsElements().get(i).getType());
+                        lock2 = true;
+                        break;
+                    } else
+                        lock2 = false;
+                }
+            }
+
+//            int count = removeList.size();
+//            for(int i = 0; i < count; i++){
+//                marsStates.remove(removeList.get(i));
+//            }
+
+            for(int i = 0; i < removeListMars.size(); i++){
+                int index = getMarsElementFromType(removeListMars.get(i), tempState);
+//                System.out.println("ELEMENTS:" + tempState.getMarsElements().get(i).getType());
+//                System.out.println("INDEX: " + (index));
+//                System.out.println("DELETED:     "+tempState.getMarsElements().get(index));
+
+                if (index!=-1){
+                    tempState.getMarsElements().remove(index);
+                }
+            }
+
+            removeListMars.clear();
+        }
+
+//        for(int i = 0; i < removeListMars.size(); i++){
+////            System.out.println(marsStates.get(removeListMars.get(i)));
+//
+//            marsStates.remove(removeListMars.get(i));
+//        }
+
+//        for(int j = 0; j < removeListEarth.size(); j++){
+////            System.out.println(earthStates.get(removeListEarth.get(j)));
+//
+//            earthStates.remove(removeListEarth.get(j));
+//        }
+
+        BFSturn = tempTurn;
+
+        if(!lock1 && !lock2)
+            return null;
+        else
+            return new State(tempState.getEarthElements(), tempState.getMarsElements(), tempTurn);
+    }
+
+    public int getEarthElementFromType(String str, State s){
+        for(int i=0; i<s.getEarthElements().size(); i++){
+            if (s.getEarthElements().get(i).getType().equalsIgnoreCase(str)){
+                return i;
+            }
+        }
+
+        return -1;
+
+    }
+
+    public int getMarsElementFromType(String str, State s){
+        for(int i=0; i<s.getMarsElements().size(); i++){
+            if (s.getMarsElements().get(i).getType().equalsIgnoreCase(str)){
+                return i;
+            }
+        }
+
+        return -1;
+
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////
     private void initButtons() {
             earthHuman1Button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
@@ -150,7 +618,7 @@ public class Controller {
         es.add(l);
         es.add(c);
         es.add(g);
-        finalStates.add(new State(es,ms));
+        finalStates.add(new State(es,ms, 0 ));
 
         ArrayList<Element> es2 = new ArrayList<Element>();
         ArrayList<Element> ms2 = new ArrayList<Element>();
@@ -160,7 +628,7 @@ public class Controller {
         es2.add(g);
         ms2.add(l);
         ms2.add(c);
-        finalStates.add(new State(es2,ms2));
+        finalStates.add(new State(es2,ms2, 1));
 
         ArrayList<Element> es3 = new ArrayList<Element>();
         ArrayList<Element> ms3 = new ArrayList<Element>();
@@ -170,7 +638,7 @@ public class Controller {
         es3.add(g);
         es3.add(l);
         ms3.add(c);
-        finalStates.add(new State(es3, ms3));
+        finalStates.add(new State(es3, ms3, 0));
 
 
         ArrayList<Element> es4 = new ArrayList<Element>();
@@ -180,7 +648,7 @@ public class Controller {
         es4.add(g);
         es4.add(l);
         ms4.add(c);
-        finalStates.add(new State(es4, ms4));
+        finalStates.add(new State(es4, ms4, 1));
 
         ArrayList<Element> es5 = new ArrayList<Element>();
         ArrayList<Element> ms5 = new ArrayList<Element>();
@@ -189,7 +657,7 @@ public class Controller {
         es5.add(g);
         es5.add(l);
         es5.add(c);
-        finalStates.add(new State(es5, ms5));
+        finalStates.add(new State(es5, ms5, 0));
 
         ArrayList<Element> es6 = new ArrayList<Element>();
         ArrayList<Element> ms6 = new ArrayList<Element>();
@@ -198,7 +666,7 @@ public class Controller {
         ms6.add(g);
         es6.add(l);
         ms6.add(c);
-        finalStates.add(new State(es6, ms6));
+        finalStates.add(new State(es6, ms6, 1));
 
 
         ArrayList<Element> es7 = new ArrayList<Element>();
@@ -208,7 +676,7 @@ public class Controller {
         ms7.add(g);
         es7.add(l);
         es7.add(c);
-        finalStates.add(new State(es7, ms7));
+        finalStates.add(new State(es7, ms7, 0));
 
         ArrayList<Element> es8 = new ArrayList<Element>();
         ArrayList<Element> ms8 = new ArrayList<Element>();
@@ -217,7 +685,7 @@ public class Controller {
         ms8.add(g);
         ms8.add(l);
         ms8.add(c);
-        finalStates.add(new State(es8, ms8));
+        finalStates.add(new State(es8, ms8, 1));
 
 
 
@@ -262,6 +730,15 @@ public class Controller {
         return true;
     }
 
+    public void reset(){
+        h1.setLocation(0);
+        h2.setLocation(0);
+        l.setLocation(0);
+        g.setLocation(0);
+        c.setLocation(0);
+
+    }
+
     public State getElements() {
         earthStates.clear();
         marsStates.clear();
@@ -301,7 +778,7 @@ public class Controller {
         else {
             marsStates.add(c);
         }
-        return new State(earthStates, marsStates);
+        return new State(earthStates, marsStates, turn);
     }
 
     public void launch() {
@@ -392,23 +869,12 @@ public class Controller {
         }
 
     }
+
+
     public void getHint(){
-        State currentState = getElements();
-
-        if(turn == 0){
-
-
-        }
-        else if(turn == 1){
-
-
-
-        }
 
     }
-//    public boolean isPlanetValid(ArrayList planetList){
-//
-//    }
+
 
     public boolean checkElementsInBothPlanets(){
         boolean valid = true;
