@@ -15,6 +15,7 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Controller {
 
@@ -117,8 +118,7 @@ public class Controller {
 
             System.out.println("WINNING STATES SO FAR: " + solutionList.size());
             if(solutionList.size()>0) {
-                System.out.println("WINNING STATE: ");
-                solutionList.get(0).getState().printState();
+                printParents();
             }
 
 
@@ -128,8 +128,6 @@ public class Controller {
             System.out.println("DEPTH: " + currNode.getDepth() + " STATES: ");
             currNode.getState().printState();
 
-            if(winner)
-                break;
 
             for(String x : possibleMoves){
                 System.out.println("------------------------------NEXT POSSIBLE MOVE--------------------------------------");
@@ -165,7 +163,9 @@ public class Controller {
 
                         if (checkIfStateIsWin(child)) {
                             System.out.println("Solution has been found");
-                            solutionList.add(child);
+                            if(checkShort(child)) {
+                                solutionList.add(child);
+                            }
                             winner = true;
 
                         } else {
@@ -181,6 +181,20 @@ public class Controller {
 
 
         }
+    }
+
+    public boolean checkShort(SearchNode n) {
+        int count = 1;
+        SearchNode parent = n.getParent();
+        while (parent != null) {
+            parent = parent.getParent();
+            count++;
+            }
+        if(count == 8){
+             return true;
+        }
+        else
+            return false;
     }
 
     public boolean isAncestor(SearchNode child) {
@@ -229,7 +243,30 @@ public class Controller {
         return false;
     }
 
-    //////FIX////////
+    public void printParents(){
+        ArrayList<SearchNode> tempList = new ArrayList<SearchNode>();
+
+        System.out.println("_------------------PRINTING SOLUTION TRACE----------------------");
+        for(int i = 0; i<solutionList.size(); i++){
+            System.out.println("----------------------------NEXT SOLUTION------------------------------------");
+                tempList.clear();
+                SearchNode currNode = solutionList.get(i);
+                tempList.add(currNode);
+                SearchNode parent = currNode.getParent();
+                while(parent != null){
+                    tempList.add(parent);
+                    parent = parent.getParent();
+                }
+            Collections.reverse(tempList);
+            for(int k = 0; k < tempList.size(); k++){
+                System.out.println("----------------------------------PARENT-------------------------------------");
+                tempList.get(k).getState().printState();
+            }
+        }
+
+    }
+
+
     public boolean checkIfPresentEarth(State s, String str) {
 //        System.out.println("Elements in Earth: "+s.getEarthElements().size());
 
@@ -260,11 +297,6 @@ public class Controller {
         s.printState();
         System.out.println("                                  BFSturn : "+BFSturn);
         boolean valid = true;
-
-        //HL
-        //HC
-        //LC
-        //LG
 
         if(((checkIfPresentEarth(s, "Human 1") || checkIfPresentEarth(s, "Human 2")) && checkIfPresentEarth(s, "Lion") && BFSturn ==1) ||
            ((checkIfPresentEarth(s, "Human 1") || checkIfPresentEarth(s, "Human 2")) && checkIfPresentEarth(s, "Lion") && BFSturn ==1 && checkIfPresentEarth(s, "Cow")) ||
