@@ -34,6 +34,8 @@ public class Controller {
     ImageView one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve;
     @FXML
     ImageView arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, arrow7, arrow8, arrow9, arrow10, arrow11, arrow12, arrow13, arrow14, arrow15, arrow16;
+    @FXML
+    ImageView arrow17, arrow18, arrow19, arrow20, arrow21, arrow22, arrow23, arrow24, arrow25, arrow26;
 
     @FXML
     ImageView scientistSpaceship;
@@ -373,6 +375,8 @@ public class Controller {
 
     public void reset(){
 
+        prev = 0;
+
         rocketElements[0] = null;
         rocketElements[1] = null;
 
@@ -500,8 +504,8 @@ public class Controller {
                 alertsLabel.setText("GAME OVER!");
             }
         }
-        displayCurrentStatePane(getElements());
         updateSolutionStates(getElements());
+        displayCurrentStatePane(getElements());
 
         if (alertsLabel.getText().toString().equals("GAME OVER!")){
             clearAutomata();
@@ -791,35 +795,35 @@ public class Controller {
         }
 
 
-        String s = "\n Move : \n";
+        String s = "\n\n  Move : \n";
 
         for(int i=0; i<moveElements.size(); i++){
             if(moveElements.get(i).equalsIgnoreCase("H")){
-                s+= "HUMAN 1\n";
+                s+= "    HUMAN 1\n";
             }
             if(moveElements.get(i).equalsIgnoreCase("P")){
-                s+= "HUMAN 2\n";
+                s+= "    HUMAN 2\n";
             }
             if(moveElements.get(i).equalsIgnoreCase("C")){
-                s+= "COW\n";
+                s+= "    COW\n";
             }
             if(moveElements.get(i).equalsIgnoreCase("G")){
-                s+= "GRAIN\n";
+                s+= "    GRAIN\n";
             }
             if(moveElements.get(i).equalsIgnoreCase("L")){
-                s+= "LION\n";
+                s+= "    LION\n";
             }
         }
 
         if (turn == 0) {
-            s+= "to Mars";
+            s+= "  to Mars";
         }
         else {
-            s+= "to Earth";
+            s+= "  to Earth";
         }
 
         Label label = new Label (s);
-        label.setStyle("-fx-font-size: 15;");
+        label.setStyle("-fx-font-size: 15; ");
         hintPane.setContent(label);
     }
 
@@ -853,6 +857,58 @@ public class Controller {
         arrow14.setOpacity(0);
         arrow15.setOpacity(0);
         arrow16.setOpacity(0);
+        arrow17.setOpacity(0);
+        arrow18.setOpacity(0);
+        arrow19.setOpacity(0);
+        arrow20.setOpacity(0);
+        arrow21.setOpacity(0);
+        arrow22.setOpacity(0);
+        arrow23.setOpacity(0);
+        arrow24.setOpacity(0);
+        arrow25.setOpacity(0);
+        arrow26.setOpacity(0);
+    }
+
+    public void showAutomata(){
+
+        two.setOpacity(1);
+        three.setOpacity(1);
+        four.setOpacity(1);
+        five.setOpacity(1);
+        six.setOpacity(1);
+        seven.setOpacity(1);
+        eight.setOpacity(1);
+        nine.setOpacity(1);
+        ten.setOpacity(1);
+        eleven.setOpacity(1);
+        twelve.setOpacity(1);
+
+        arrow1.setOpacity(1);
+        arrow2.setOpacity(1);
+        arrow3.setOpacity(1);
+        arrow4.setOpacity(1);
+        arrow5.setOpacity(1);
+        arrow6.setOpacity(1);
+        arrow7.setOpacity(1);
+        arrow8.setOpacity(1);
+        arrow9.setOpacity(1);
+        arrow10.setOpacity(1);
+        arrow11.setOpacity(1);
+        arrow12.setOpacity(1);
+        arrow13.setOpacity(1);
+        arrow14.setOpacity(1);
+        arrow15.setOpacity(1);
+        arrow16.setOpacity(1);
+        arrow17.setOpacity(1);
+        arrow18.setOpacity(1);
+        arrow19.setOpacity(1);
+        arrow20.setOpacity(1);
+        arrow21.setOpacity(1);
+        arrow22.setOpacity(1);
+        arrow23.setOpacity(1);
+        arrow24.setOpacity(1);
+        arrow25.setOpacity(1);
+        arrow26.setOpacity(1);
     }
 
     public void disableTravellingElements(){
@@ -934,47 +990,59 @@ public class Controller {
 
     int prev = 0;
     public void updateSolutionStates(State state){
-
-        if (state.checkIfPresentEarth("Human 1") && state.checkIfPresentEarth( "Human 2") &&  state.checkIfPresentEarth("Grain")
-                && state.checkIfPresentMars("Lion") && state.checkIfPresentMars("Cow")){
+        if (state.checkIfPresentEarth("H") && state.checkIfPresentEarth( "P") &&  state.checkIfPresentEarth("G")
+                && state.checkIfPresentMars("L") && state.checkIfPresentMars("C")){
+            if (prev == 2)
+                arrow17.setOpacity(1);
+            if (prev == 8)
+                arrow22.setOpacity(1);
+            else
+                arrow1.setOpacity(1);
             prev = 1;
-            arrow1.setOpacity(1);
             two.setOpacity(1);
         } //ok
-        else if (state.checkIfPresentEarth("Human 1") && state.checkIfPresentEarth("Human 2") &&  state.checkIfPresentEarth("Grain")
-                && state.checkIfPresentEarth("Lion") && state.checkIfPresentMars("Cow")){
+        else if (state.checkIfPresentEarth("H") && state.checkIfPresentEarth("P") &&  state.checkIfPresentEarth("G")
+                && state.checkIfPresentEarth("L") && state.checkIfPresentMars("C")){
             if (prev == 1)
                 arrow2.setOpacity(1);
             if (prev == 9)
                 arrow15.setOpacity(1);
+            if (prev == 3)
+                arrow18.setOpacity(1);
             prev = 2;
             three.setOpacity(1);
         }
-        else if (state.checkIfPresentMars("Human 1") && state.checkIfPresentMars("Human 2") &&  state.checkIfPresentEarth("Grain")
-                && state.checkIfPresentEarth("Lion") && state.checkIfPresentMars("Cow")){
+        else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentEarth("G")
+                && state.checkIfPresentEarth("L") && state.checkIfPresentMars("C")){
             if (prev == 2)
                 arrow3.setOpacity(1);
+            if (prev == 4)
+                arrow19.setOpacity(1);
             prev = 3;
             four.setOpacity(1);
         }
-        else if (state.checkIfPresentMars("Human 1") && state.checkIfPresentMars("Human 2") &&  state.checkIfPresentEarth("Grain")
-                && state.checkIfPresentEarth("Lion") && state.checkIfPresentEarth("Cow")){
+        else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentEarth("G")
+                && state.checkIfPresentEarth("L") && state.checkIfPresentEarth("C")){
             if (prev == 3)
                 arrow4.setOpacity(1);
             if (prev == 11)
                 arrow16.setOpacity(1);
+            if (prev == 5)
+                arrow20.setOpacity(1);
             prev = 4;
             five.setOpacity(1);
         }
-        else if (state.checkIfPresentMars("Human 1") && state.checkIfPresentMars("Human 2") &&  state.checkIfPresentMars("Grain")
-                && state.checkIfPresentEarth("Lion") && state.checkIfPresentMars("Cow")){
+        else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentMars("G")
+                && state.checkIfPresentEarth("L") && state.checkIfPresentMars("C")){
             if (prev == 4)
                 arrow5.setOpacity(1);
+            if (prev == 6)
+                arrow21.setOpacity(1);
             prev = 5;
             six.setOpacity(1);
         }
-        else if (state.checkIfPresentMars("Human 1") && state.checkIfPresentMars("Human 2") &&  state.checkIfPresentMars("Grain")
-                && state.checkIfPresentEarth("Lion") && state.checkIfPresentEarth("Cow")){
+        else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentMars("G")
+                && state.checkIfPresentEarth("L") && state.checkIfPresentEarth("C")){
             if (prev == 5)
                 arrow6.setOpacity(1);
             if (prev == 11)
@@ -982,42 +1050,50 @@ public class Controller {
             prev = 6;
             seven.setOpacity(1);
         }
-        else if (state.checkIfPresentMars("Human 1") && state.checkIfPresentMars("Human 2") &&  state.checkIfPresentMars("Grain")
-                && state.checkIfPresentMars("Lion")  && state.checkIfPresentMars("Cow")){
+        else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentMars("G")
+                && state.checkIfPresentMars("L")  && state.checkIfPresentMars("C")){
             if (prev == 6)
                 arrow7.setOpacity(1);
             prev = 7;
             eight.setOpacity(1);
         }
-        else if (state.checkIfPresentEarth("Human 1") && state.checkIfPresentEarth("Human 2") &&  state.checkIfPresentEarth("Grain")
-                && state.checkIfPresentMars("Lion")  && state.checkIfPresentEarth("Cow")){
+        else if (state.checkIfPresentEarth("H") && state.checkIfPresentEarth("P") &&  state.checkIfPresentEarth("G")
+                && state.checkIfPresentMars("L")  && state.checkIfPresentEarth("C")){
             if (prev == 1)
                 arrow8.setOpacity(1);
+            if (prev == 9)
+                arrow23.setOpacity(1);
             prev = 8;
             nine.setOpacity(1);
         }
-        else if (state.checkIfPresentEarth("Human 1") && state.checkIfPresentEarth("Human 2") &&  state.checkIfPresentMars("Grain")
-                && state.checkIfPresentMars("Lion")  && state.checkIfPresentMars("Cow")){
+        else if (state.checkIfPresentEarth("H") && state.checkIfPresentEarth("P") &&  state.checkIfPresentMars("G")
+                && state.checkIfPresentMars("L")  && state.checkIfPresentMars("C")){
             if (prev == 8)
                 arrow9.setOpacity(1);
             if (prev == 2)
                 arrow10.setOpacity(1);
+            if (prev == 10)
+                arrow24.setOpacity(1);
             prev = 9;
             ten.setOpacity(1);
         }
-        else if (state.checkIfPresentEarth("Human 1")&& state.checkIfPresentEarth("Human 2") &&  state.checkIfPresentMars("Grain")
-                && state.checkIfPresentMars("Lion")  && state.checkIfPresentEarth("Cow")){
+        else if (state.checkIfPresentEarth("H")&& state.checkIfPresentEarth("P") &&  state.checkIfPresentMars("G")
+                && state.checkIfPresentMars("L")  && state.checkIfPresentEarth("C")){
             if (prev == 9)
                 arrow11.setOpacity(1);
+            if (prev == 11)
+                arrow25.setOpacity(1);
             prev = 10;
             eleven.setOpacity(1);
         }
-        else if (state.checkIfPresentMars("Human 1") && state.checkIfPresentMars("Human 2") &&  state.checkIfPresentMars("Grain")
-                && state.checkIfPresentMars("Lion")  && state.checkIfPresentEarth("Cow")){
+        else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentMars("G")
+                && state.checkIfPresentMars("L")  && state.checkIfPresentEarth("C")){
             if (prev == 10)
                 arrow12.setOpacity(1);
             if (prev == 4)
                 arrow13.setOpacity(1);
+            if (prev == 6)
+                arrow26.setOpacity(1);
             prev = 11;
             twelve.setOpacity(1);
         }
