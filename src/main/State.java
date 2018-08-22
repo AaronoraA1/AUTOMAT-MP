@@ -81,20 +81,20 @@ public class State {
         if(((checkIfPresentEarth("H") || checkIfPresentEarth("P")) && checkIfPresentEarth("L") && turn ==1) ||
                 ((checkIfPresentEarth("H") || checkIfPresentEarth("P")) && checkIfPresentEarth("L") && turn ==1 && checkIfPresentEarth("C")) ||
                 ((checkIfPresentEarth("H") || checkIfPresentEarth("P")) && checkIfPresentEarth("L") && turn ==1 && checkIfPresentEarth("G"))){
-            System.out.println("                             hl earth");
+//            System.out.println("                             hl earth");
             valid = false;
         }
         else if(((checkIfPresentEarth("H") || checkIfPresentEarth("P")) && checkIfPresentEarth("C")  && turn ==1) ||
                 ((checkIfPresentEarth("H") || checkIfPresentEarth("P")) && checkIfPresentEarth("L") && turn ==1 && checkIfPresentEarth("L")) ||
                 ((checkIfPresentEarth("H") || checkIfPresentEarth("P")) && checkIfPresentEarth("C")  && turn ==1 && checkIfPresentEarth("G"))){
-            System.out.println("                             hc earth");
+//            System.out.println("                             hc earth");
 
             valid = false;
         }
         else if((checkIfPresentEarth("L") && checkIfPresentEarth("C") && turn ==1) ||
                 (checkIfPresentEarth("L") && checkIfPresentEarth("C") && turn ==1 && checkIfPresentEarth("H")) ||
                 (checkIfPresentEarth("L") && checkIfPresentEarth("C") && turn ==1 && checkIfPresentEarth("G"))){
-            System.out.println("                             lc earth");
+//            System.out.println("                             lc earth");
 
             valid = false;
         }
@@ -102,7 +102,7 @@ public class State {
                 (checkIfPresentEarth("G") && checkIfPresentEarth("C") && turn ==1 && checkIfPresentEarth("H")) ||
                 (checkIfPresentEarth("G") && checkIfPresentEarth("C") && turn ==1 && checkIfPresentEarth("P")) ||
                 (checkIfPresentEarth("G") && checkIfPresentEarth("C") && turn ==1 && checkIfPresentEarth("L"))){
-            System.out.println("                             gc earth");
+//            System.out.println("                             gc earth");
 
             valid = false;
         }
@@ -111,21 +111,21 @@ public class State {
         else if(((checkIfPresentMars("H") || checkIfPresentMars("P")) && checkIfPresentMars("L") && turn ==0) ||
                 ((checkIfPresentMars("H") || checkIfPresentMars("P")) && checkIfPresentMars("L") && turn ==0 && checkIfPresentMars("C")) ||
                 ((checkIfPresentMars("H") || checkIfPresentMars("P")) && checkIfPresentMars("L") && turn ==0 && checkIfPresentMars("G"))){
-            System.out.println("                             hl mars");
+//            System.out.println("                             hl mars");
 
             valid = false;
         }
         else if(((checkIfPresentMars("H") || checkIfPresentMars("P")) && checkIfPresentMars("C")  && turn ==0) ||
                 ((checkIfPresentMars("H") || checkIfPresentMars("P")) && checkIfPresentMars("L") && turn ==0 && checkIfPresentMars("L")) ||
                 ((checkIfPresentMars("H") || checkIfPresentMars("P")) && checkIfPresentMars("C")  && turn ==0 && checkIfPresentMars("G"))){
-            System.out.println("                             hc mars");
+//            System.out.println("                             hc mars");
 
             valid = false;
         }
         else if((checkIfPresentMars("L") && checkIfPresentMars("C") && turn ==0) ||
                 (checkIfPresentMars("L") && checkIfPresentMars("C") && turn ==0 && checkIfPresentMars("H")) ||
                 (checkIfPresentMars("L") && checkIfPresentMars("C") && turn ==0 && checkIfPresentMars("G"))){
-            System.out.println("                             lc mars");
+//            System.out.println("                             lc mars");
 
             valid = false;
         }
@@ -133,11 +133,11 @@ public class State {
                 (checkIfPresentMars("G") && checkIfPresentMars("C") && turn ==0 && checkIfPresentMars("H")) ||
                 (checkIfPresentMars("G") && checkIfPresentMars("C") && turn ==0 && checkIfPresentMars("P")) ||
                 (checkIfPresentMars("G") && checkIfPresentMars("C") && turn ==0 && checkIfPresentMars("L"))){
-            System.out.println("                             gc mars");
+//            System.out.println("                             gc mars");
 
             valid = false;
         }
-        System.out.println("                                  valid : "+valid);
+//        System.out.println("                                  valid : "+valid);
 
         return valid;
     }

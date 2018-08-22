@@ -117,6 +117,7 @@ public class Controller {
             System.out.println("----------------------------NEXT SOLUTION------------------------------------");
             tempList.clear();
             SearchNode currNode = solutionList.get(i);
+
             tempList.add(currNode);
             SearchNode parent = currNode.getParent();
             while(parent != null){
@@ -168,6 +169,8 @@ public class Controller {
 
         initButtons();
         initFinalStates();
+
+        BFSSearch();
     }
 
     /////////////////////////////////////GUI FUNCTIONS///////////////////////////////////////////
@@ -240,11 +243,11 @@ public class Controller {
 
         System.out.println("INITIALIZE");
 
-        es.add("Human 1");
-        es.add("Human 2");
-        es.add("Lion");
-        es.add("Cow");
-        es.add("Grain");
+        es.add("H");
+        es.add("P");
+        es.add("L");
+        es.add("C");
+        es.add("G");
 
         finalStates.add(new State(es,ms, 0 ));
 
@@ -420,38 +423,38 @@ public class Controller {
 
         //human1
         if(h1.getLocation()==0){
-            earthStates.add("Human 1");
+            earthStates.add("H");
         }
         else {
-            marsStates.add("Human 1");
+            marsStates.add("H");
         }
         //human2
         if(h2.getLocation()==0){
-            earthStates.add("Human 2");
+            earthStates.add("P");
         }
         else {
-            marsStates.add("Human 2");
+            marsStates.add("P");
         }
         //lion
         if(l.getLocation()==0){
-            earthStates.add("Lion");
+            earthStates.add("L");
         }
         else {
-            marsStates.add("Lion");
+            marsStates.add("L");
         }
         //grain
         if(g.getLocation()==0){
-            earthStates.add("Grain");
+            earthStates.add("G");
         }
         else {
-            marsStates.add("Grain");
+            marsStates.add("G");
         }
         //cow
         if(c.getLocation()==0){
-            earthStates.add("Cow");
+            earthStates.add("C");
         }
         else {
-            marsStates.add("Cow");
+            marsStates.add("C");
         }
         return new State(earthStates, marsStates, turn);
     }
@@ -509,49 +512,51 @@ public class Controller {
         System.out.println("GETTING HINT");
         State currentState = getElements();
 
-        int i;
-        System.out.println(finalStates.size());
-        for(i = 0; i<finalStates.size(); i++){
-            boolean lock1 =false;
-            boolean lock2 = false;
-            if(i == 0){
-                lock2 =true;
-            }
-            System.out.println("ITERATING " + i);
+        lookForSolution(currentState);
 
-            System.out.println(finalStates.get(i).getEarthElements().size());
-            System.out.println(finalStates.get(i).getMarsElements().size());
-
-            if(currentState.getEarthElements().size() == finalStates.get(i).getEarthElements().size()) {
-                for (int j = 0; j < currentState.getEarthElements().size(); j++) {
-                    if (!finalStates.get(i).getEarthElements().contains(currentState.getEarthElements().get(j))) {
-                        lock1 = false;
-                        System.out.println("LOCK 1 FALSE");
-                        break;
-                    } else {
-                        lock1 = true;
-                        System.out.println("LOCK 1 TRUE");
-                    }
-                }
-            }
-            if(currentState.getMarsElements().size() == finalStates.get(i).getMarsElements().size()) {
-                for (int j = 0; j < currentState.getMarsElements().size(); j++) {
-                    if (!finalStates.get(i).getMarsElements().contains(currentState.getMarsElements().get(j))) {
-                        lock2 = false;
-                        System.out.println("LOCK 2 FALSE");
-                        break;
-                    } else {
-                        lock2 = true;
-                        System.out.println("LOCK 2 TRUE");
-                    }
-                }
-            }
-            if(lock1 && lock2){
-                System.out.println("SHOWING LOCK");
-                displaySolution(finalStates.get(i + 1));
-                break;
-            }
-        }
+//        int i;
+//        System.out.println(finalStates.size());
+//        for(i = 0; i<finalStates.size(); i++){
+//            boolean lock1 =false;
+//            boolean lock2 = false;
+//            if(i == 0){
+//                lock2 =true;
+//            }
+//            System.out.println("ITERATING " + i);
+//
+//            System.out.println(finalStates.get(i).getEarthElements().size());
+//            System.out.println(finalStates.get(i).getMarsElements().size());
+//
+//            if(currentState.getEarthElements().size() == finalStates.get(i).getEarthElements().size()) {
+//                for (int j = 0; j < currentState.getEarthElements().size(); j++) {
+//                    if (!finalStates.get(i).getEarthElements().contains(currentState.getEarthElements().get(j))) {
+//                        lock1 = false;
+//                        System.out.println("LOCK 1 FALSE");
+//                        break;
+//                    } else {
+//                        lock1 = true;
+//                        System.out.println("LOCK 1 TRUE");
+//                    }
+//                }
+//            }
+//            if(currentState.getMarsElements().size() == finalStates.get(i).getMarsElements().size()) {
+//                for (int j = 0; j < currentState.getMarsElements().size(); j++) {
+//                    if (!finalStates.get(i).getMarsElements().contains(currentState.getMarsElements().get(j))) {
+//                        lock2 = false;
+//                        System.out.println("LOCK 2 FALSE");
+//                        break;
+//                    } else {
+//                        lock2 = true;
+//                        System.out.println("LOCK 2 TRUE");
+//                    }
+//                }
+//            }
+//            if(lock1 && lock2){
+//                System.out.println("SHOWING LOCK");
+//                lookForSolution(finalStates.get(i + 1), finalStates.get(i));
+//                break;
+//            }
+//        }
 
     }
 
@@ -619,15 +624,48 @@ public class Controller {
         String s = "\nEARTH :\n";
 
         for(int i=0; i<state.getEarthElements().size(); i++){
-            s+= ""+ state.getEarthElements().get(i);
-            s+= "\n";
+//            s+= ""+ state.getEarthElements().get(i);
+//            s+= "\n";
+
+
+            if(state.getEarthElements().get(i).equalsIgnoreCase("H")){
+                s+= "HUMAN 1\n";
+            }
+            if(state.getEarthElements().get(i).equalsIgnoreCase("P")){
+                s+= "HUMAN 2\n";
+            }
+            if(state.getEarthElements().get(i).equalsIgnoreCase("C")){
+                s+= "COW\n";
+            }
+            if(state.getEarthElements().get(i).equalsIgnoreCase("G")){
+                s+= "GRAIN\n";
+            }
+            if(state.getEarthElements().get(i).equalsIgnoreCase("L")){
+                s+= "LION\n";
+            }
         }
 
         s+= "\nMARS :\n";
 
         for(int i=0; i<state.getMarsElements().size(); i++){
-            s+= ""+ state.getMarsElements().get(i);
-            s+= "\n";
+//            s+= ""+ state.getMarsElements().get(i);
+//            s+= "\n";
+
+            if(state.getMarsElements().get(i).equalsIgnoreCase("H")){
+                s+= "HUMAN 1\n";
+            }
+            if(state.getMarsElements().get(i).equalsIgnoreCase("P")){
+                s+= "HUMAN 2\n";
+            }
+            if(state.getMarsElements().get(i).equalsIgnoreCase("C")){
+                s+= "COW\n";
+            }
+            if(state.getMarsElements().get(i).equalsIgnoreCase("G")){
+                s+= "GRAIN\n";
+            }
+            if(state.getMarsElements().get(i).equalsIgnoreCase("L")){
+                s+= "LION\n";
+            }
         }
 
         Label label = new Label (s);
@@ -639,34 +677,145 @@ public class Controller {
         String s = "\nEARTH :\n";
 
         for(int i=0; i<state.getEarthElements().size(); i++){
-            s+= ""+ state.getEarthElements().get(i);
-            s+= "\n";
+            if(state.getEarthElements().get(i).equalsIgnoreCase("H")){
+                s+= "HUMAN 1\n";
+            }
+            if(state.getEarthElements().get(i).equalsIgnoreCase("P")){
+                s+= "HUMAN 2\n";
+            }
+            if(state.getEarthElements().get(i).equalsIgnoreCase("C")){
+                s+= "COW\n";
+            }
+            if(state.getEarthElements().get(i).equalsIgnoreCase("G")){
+                s+= "GRAIN\n";
+            }
+            if(state.getEarthElements().get(i).equalsIgnoreCase("L")){
+                s+= "LION\n";
+            }
         }
 
         s+= "\nMARS :\n";
 
         for(int i=0; i<state.getMarsElements().size(); i++){
-            s+= ""+ state.getMarsElements().get(i);
-            s+= "\n";
+
+            if(state.getMarsElements().get(i).equalsIgnoreCase("H")){
+                s+= "HUMAN 1\n";
+            }
+            if(state.getMarsElements().get(i).equalsIgnoreCase("P")){
+                s+= "HUMAN 2\n";
+            }
+            if(state.getMarsElements().get(i).equalsIgnoreCase("C")){
+                s+= "COW\n";
+            }
+            if(state.getMarsElements().get(i).equalsIgnoreCase("G")){
+                s+= "GRAIN\n";
+            }
+            if(state.getMarsElements().get(i).equalsIgnoreCase("L")){
+                s+= "LION\n";
+            }
         }
 
         Label label = new Label (s);
         label.setStyle("-fx-font-size: 12; -fx-text-alignment: center");
         currentStatePane.getChildren().add(label);
     }
-    public void displaySolution(State state){
-        String s = "\n EARTH : \n";
 
-        for(int i=0; i<state.getEarthElements().size(); i++){
-            s+= " "+ state.getEarthElements().get(i);
-            s+= "\n";
+    public void lookForSolution (State currState){
+        System.out.println("LOOKING FOR SOLUTION");
+        ArrayList<SearchNode> tempList = new ArrayList<SearchNode>();
+
+        for(int i = 0; i<solutionList.size(); i++){
+            tempList.clear();
+            SearchNode currNode = solutionList.get(i);
+
+            tempList.add(currNode);
+            SearchNode parent = currNode.getParent();
+            while(parent != null){
+                tempList.add(parent);
+                parent = parent.getParent();
+            }
+            Collections.reverse(tempList);
+
+            currState.printState();
+            System.out.println("COMPARED TO.. ");
+            for(int k = 0; k < tempList.size(); k++){
+                tempList.get(k).getState().printState();
+
+                if (tempList.get(k).getState().compareElements(currState)){
+                    displaySolution(tempList.get(k+1).getState(), tempList.get(k).getState());
+                    break;
+                }
+            }
+        }
+        System.out.println("DID NOT FIND A HINT");
+    }
+
+    public void displaySolution(State suggestion, State currState){
+        ArrayList<String> moveElements = new ArrayList<String>();
+        boolean transfer = false;
+
+        if(turn == 0){ //PAPUNTANG MARS
+            for(int i=0; i<suggestion.getMarsElements().size(); i++){
+                for (int k=0; k<currState.getMarsElements().size(); k++){
+                    if(suggestion.getMarsElements().get(i).equalsIgnoreCase(currState.getMarsElements().get(k))){
+                        transfer = false;
+                        break;
+                    }
+                    else {
+                        transfer = true;
+                    }
+                }
+                if (transfer){
+                    moveElements.add(suggestion.getMarsElements().get(i));
+                    transfer = false;
+                }
+            }
+        }
+        else { //PAPUNTANG EARTH
+            for(int i=0; i<suggestion.getEarthElements().size(); i++){
+                for (int k=0; k<currState.getEarthElements().size(); k++){
+                    if(suggestion.getEarthElements().get(i).equalsIgnoreCase(currState.getEarthElements().get(k))){
+                        transfer = false;
+                        break;
+                    }
+                    else {
+                        transfer = true;
+                    }
+                }
+                if (transfer){
+                    moveElements.add(suggestion.getEarthElements().get(i));
+                    transfer = false;
+                }
+            }
+
         }
 
-        s+= "\n MARS : \n";
 
-        for(int i=0; i<state.getMarsElements().size(); i++){
-            s+= " "+ state.getMarsElements().get(i);
-            s+= "\n";
+        String s = "\n Move : \n";
+
+        for(int i=0; i<moveElements.size(); i++){
+            if(moveElements.get(i).equalsIgnoreCase("H")){
+                s+= "HUMAN 1\n";
+            }
+            if(moveElements.get(i).equalsIgnoreCase("P")){
+                s+= "HUMAN 2\n";
+            }
+            if(moveElements.get(i).equalsIgnoreCase("C")){
+                s+= "COW\n";
+            }
+            if(moveElements.get(i).equalsIgnoreCase("G")){
+                s+= "GRAIN\n";
+            }
+            if(moveElements.get(i).equalsIgnoreCase("L")){
+                s+= "LION\n";
+            }
+        }
+
+        if (turn == 0) {
+            s+= "to Mars";
+        }
+        else {
+            s+= "to Earth";
         }
 
         Label label = new Label (s);
