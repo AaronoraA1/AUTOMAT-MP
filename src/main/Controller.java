@@ -751,6 +751,32 @@ public class Controller {
         marsGrainPic.setOpacity(0.2);
         marsGrainButton.setDisable(true);
 
+        two.setOpacity(0);
+        three.setOpacity(0);
+        four.setOpacity(0);
+        five.setOpacity(0);
+        six.setOpacity(0);
+        seven.setOpacity(0);
+        eight.setOpacity(0);
+        nine.setOpacity(0);
+        ten.setOpacity(0);
+        eleven.setOpacity(0);
+        twelve.setOpacity(0);
+
+        arrow1.setOpacity(0);
+        arrow2.setOpacity(0);
+        arrow3.setOpacity(0);
+        arrow4.setOpacity(0);
+        arrow5.setOpacity(0);
+        arrow6.setOpacity(0);
+        arrow7.setOpacity(0);
+        arrow8.setOpacity(0);
+        arrow9.setOpacity(0);
+        arrow10.setOpacity(0);
+        arrow11.setOpacity(0);
+        arrow12.setOpacity(0);
+        arrow13.setOpacity(0);
+        arrow15.setOpacity(0);
     }
 
     public State getElements() {
@@ -1150,6 +1176,8 @@ public class Controller {
                 && checkIfPresentMars(state, "Lion") && checkIfPresentMars(state, "Cow")){
             if (prev == 8)
                 arrow10.setOpacity(1);
+            if (prev == 2)
+                arrow9.setOpacity(1);
             prev = 9;
             ten.setOpacity(1);
         }
@@ -1164,6 +1192,8 @@ public class Controller {
                 && checkIfPresentMars(state, "Lion") && checkIfPresentEarth(state, "Cow")){
             if (prev == 10)
                 arrow12.setOpacity(1);
+            if (prev == 4)
+                arrow11.setOpacity(1);
             prev = 11;
             twelve.setOpacity(1);
         }

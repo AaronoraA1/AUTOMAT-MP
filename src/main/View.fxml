@@ -187,12 +187,12 @@
             <Image url="@../res/10.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="eleven" fitHeight="139.0" fitWidth="181.0" layoutX="708.0" layoutY="417.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="eleven" fitHeight="139.0" fitWidth="181.0" layoutX="689.0" layoutY="417.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/11.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="twelve" fitHeight="139.0" fitWidth="181.0" layoutX="860.0" layoutY="416.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="twelve" fitHeight="139.0" fitWidth="181.0" layoutX="849.0" layoutY="406.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/12.png" />
          </image>
@@ -212,7 +212,7 @@
             <Image url="@../res/arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrow15" fitHeight="75.0" fitWidth="81.0" layoutX="643.0" layoutY="443.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow15" fitHeight="60.0" fitWidth="61.0" layoutX="643.0" layoutY="445.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow.png" />
          </image>
@@ -222,7 +222,7 @@
             <Image url="@../res/arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrow12" fitHeight="38.0" fitWidth="38.0" layoutX="835.0" layoutY="465.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow12" fitHeight="60.0" fitWidth="47.0" layoutX="812.0" layoutY="468.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow.png" />
          </image>
@@ -257,7 +257,7 @@
             <Image url="@../res/arrow2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrow11" fitHeight="38.0" fitWidth="47.0" layoutX="729.0" layoutY="393.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow11" fitHeight="68.0" fitWidth="84.0" layoutX="796.0" layoutY="377.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow2.png" />
          </image>
@@ -267,7 +267,7 @@
             <Image url="@../res/arrow3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="162.0" layoutY="416.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="162.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow.png" />
          </image>
