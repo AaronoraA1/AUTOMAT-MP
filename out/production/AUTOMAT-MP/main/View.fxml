@@ -11,265 +11,275 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1200.0" style="-fx-background-color: darkblue;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
     <children>
-      <ImageView fitHeight="282.0" fitWidth="830.0" layoutX="-28.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/galaxy.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="323.0" fitWidth="302.0" layoutX="482.0" layoutY="-51.0" opacity="0.73" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/moon.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="277.0" fitWidth="258.0" layoutX="-56.0" layoutY="-14.0" opacity="0.74" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/planet-earth.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="earthHuman1Pic" fitHeight="83.0" fitWidth="61.0" layoutX="20.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/man.png" />
-         </image>
-      </ImageView>
+        <ImageView fitHeight="282.0" fitWidth="830.0" layoutX="-28.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/galaxy.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="323.0" fitWidth="302.0" layoutX="482.0" layoutY="-51.0" opacity="0.73" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/moon.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="277.0" fitWidth="258.0" layoutX="-56.0" layoutY="-14.0" opacity="0.74" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/planet-earth.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="earthHuman1Pic" fitHeight="83.0" fitWidth="61.0" layoutX="20.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/man.png" />
+            </image>
+        </ImageView>
         <Button fx:id="earthHuman1Button" layoutX="23.0" layoutY="9.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="earthCowPic" fitHeight="83.0" fitWidth="61.0" layoutX="27.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/cow.png" />
-         </image>
-      </ImageView>
+        <ImageView fx:id="earthCowPic" fitHeight="83.0" fitWidth="61.0" layoutX="27.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/cow.png" />
+            </image>
+        </ImageView>
         <Button fx:id="earthCowButton" layoutX="25.0" layoutY="94.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="earthHuman2Pic" fitHeight="83.0" fitWidth="61.0" layoutX="92.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/woman.png" />
-         </image>
-      </ImageView>
+        <ImageView fx:id="earthHuman2Pic" fitHeight="83.0" fitWidth="61.0" layoutX="92.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/woman.png" />
+            </image>
+        </ImageView>
         <Button fx:id="earthHuman2Button" layoutX="91.0" layoutY="36.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="earthGrainPic" fitHeight="60.0" fitWidth="47.0" layoutX="66.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/money-bag.png" />
-         </image>
-      </ImageView>
+        <ImageView fx:id="earthGrainPic" fitHeight="60.0" fitWidth="47.0" layoutX="66.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/money-bag.png" />
+            </image>
+        </ImageView>
         <Button fx:id="earthGrainButton" layoutX="58.0" layoutY="165.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="earthLionPic" fitHeight="83.0" fitWidth="61.0" layoutX="113.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/lion.png" />
-         </image>
-      </ImageView>
+        <ImageView fx:id="earthLionPic" fitHeight="83.0" fitWidth="61.0" layoutX="113.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/lion.png" />
+            </image>
+        </ImageView>
         <Button fx:id="earthLionButton" layoutX="111.0" layoutY="110.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="marsHuman1Pic" fitHeight="83.0" fitWidth="61.0" layoutX="569.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/man.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="marsHuman1Button" layoutX="572.0" layoutY="28.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="marsCowPic" fitHeight="83.0" fitWidth="61.0" layoutX="576.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/cow.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="marsCowButton" layoutX="574.0" layoutY="113.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="marsHuman2Pic" fitHeight="83.0" fitWidth="61.0" layoutX="641.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/woman.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="marsHuman2Button" layoutX="640.0" layoutY="55.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="marsGrainPic" fitHeight="60.0" fitWidth="47.0" layoutX="615.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/money-bag.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="marsGrainButton" layoutX="607.0" layoutY="184.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="marsLionPic" fitHeight="83.0" fitWidth="61.0" layoutX="662.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/lion.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="marsLionButton" layoutX="660.0" layoutY="129.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
-      <ImageView fx:id="scientistSpaceship" fitHeight="96.0" fitWidth="100.0" layoutX="163.0" layoutY="156.0" opacity="0.94" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/ufo.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="hintButton" layoutX="15.0" layoutY="513.0" mnemonicParsing="false" onAction="#getSolution" prefHeight="26.0" prefWidth="137.0" text="Get Hint" />
-      <Label layoutX="863.0" layoutY="63.0" text="Previous State" textFill="WHITE">
-         <font>
-            <Font name="System Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="1045.0" layoutY="62.0" text="Current State" textFill="WHITE">
-         <font>
-            <Font name="System Italic" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="alertsLabel" layoutX="909.0" layoutY="27.0" prefHeight="30.0" prefWidth="208.0" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="63.0" layoutY="267.0" text="Hint" textFill="WHITE">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="861.0" layoutY="10.0" text="Loaded in Rocket :" textFill="WHITE">
-         <font>
-            <Font name="System Italic" size="14.0" />
-         </font>
-      </Label>
-      <ScrollPane fx:id="solutionPane" layoutX="15.0" layoutY="300.0" prefHeight="206.0" prefWidth="137.0" />
+        <ImageView fx:id="marsHuman1Pic" fitHeight="83.0" fitWidth="61.0" layoutX="569.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/man.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="marsHuman1Button" layoutX="572.0" layoutY="28.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+        <ImageView fx:id="marsCowPic" fitHeight="83.0" fitWidth="61.0" layoutX="576.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/cow.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="marsCowButton" layoutX="574.0" layoutY="113.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+        <ImageView fx:id="marsHuman2Pic" fitHeight="83.0" fitWidth="61.0" layoutX="641.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/woman.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="marsHuman2Button" layoutX="640.0" layoutY="55.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+        <ImageView fx:id="marsGrainPic" fitHeight="60.0" fitWidth="47.0" layoutX="615.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/money-bag.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="marsGrainButton" layoutX="607.0" layoutY="184.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+        <ImageView fx:id="marsLionPic" fitHeight="83.0" fitWidth="61.0" layoutX="662.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/lion.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="marsLionButton" layoutX="660.0" layoutY="129.0" mnemonicParsing="false" opacity="0.0" prefHeight="60.0" prefWidth="61.0" />
+        <ImageView fx:id="scientistSpaceship" fitHeight="96.0" fitWidth="100.0" layoutX="163.0" layoutY="156.0" opacity="0.94" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/ufo.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="hintButton" layoutX="15.0" layoutY="513.0" mnemonicParsing="false" onAction="#getHint" prefHeight="26.0" prefWidth="137.0" text="Get Hint" />
+        <Label layoutX="863.0" layoutY="63.0" text="Previous State" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="1045.0" layoutY="62.0" text="Current State" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="alertsLabel" layoutX="909.0" layoutY="27.0" prefHeight="30.0" prefWidth="208.0" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="63.0" layoutY="267.0" text="Hint" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="861.0" layoutY="10.0" text="Loaded in Rocket :" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="14.0" />
+            </font>
+        </Label>
+        <ScrollPane fx:id="hintPane" layoutX="15.0" layoutY="300.0" prefHeight="206.0" prefWidth="137.0" />
         <Button fx:id="launchButton" layoutX="169.0" layoutY="174.0" mnemonicParsing="false" onAction="#launch" opacity="0.0" prefHeight="60.0" prefWidth="84.0" />
-      <ImageView fitHeight="171.0" fitWidth="169.0" layoutX="820.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="171.0" fitWidth="169.0" layoutX="820.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/circle.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="171.0" fitWidth="169.0" layoutX="1002.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/circle.png" />
+            </image>
+        </ImageView>
+        <Pane fx:id="currentStatePane" layoutX="1063.0" layoutY="72.0" prefHeight="127.0" prefWidth="130.0" />
+        <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="976.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="15.0" layoutY="545.0" mnemonicParsing="false" onAction="#reset" prefHeight="26.0" prefWidth="137.0" text="Reset Game" />
+        <Pane fx:id="previousStatePane" layoutX="881.0" layoutY="72.0" prefHeight="127.0" prefWidth="130.0" />
+        <ImageView fx:id="one" fitHeight="139.0" fitWidth="170.0" layoutX="190.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="two" fitHeight="139.0" fitWidth="170.0" layoutX="283.0" layoutY="277.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="three" fitHeight="139.0" fitWidth="170.0" layoutX="420.0" layoutY="275.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="four" fitHeight="139.0" fitWidth="170.0" layoutX="554.0" layoutY="277.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/4.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="five" fitHeight="139.0" fitWidth="170.0" layoutX="687.0" layoutY="277.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/5.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="six" fitHeight="139.0" fitWidth="170.0" layoutX="822.0" layoutY="280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/6.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="seven" fitHeight="139.0" fitWidth="170.0" layoutX="953.0" layoutY="280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/7.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="eight" fitHeight="139.0" fitWidth="170.0" layoutX="1066.0" layoutY="371.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/8.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="nine" fitHeight="139.0" fitWidth="170.0" layoutX="369.0" layoutY="414.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/9.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="ten" fitHeight="139.0" fitWidth="181.0" layoutX="516.0" layoutY="409.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/10.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="eleven" fitHeight="139.0" fitWidth="181.0" layoutX="689.0" layoutY="417.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/11.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="twelve" fitHeight="139.0" fitWidth="181.0" layoutX="841.0" layoutY="404.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/12.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow3" fitHeight="29.0" fitWidth="24.0" layoutX="540.0" layoutY="325.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow2" fitHeight="30.0" fitWidth="31.0" layoutX="400.0" layoutY="328.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow9" fitHeight="38.0" fitWidth="38.0" layoutX="489.0" layoutY="463.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow11" fitHeight="60.0" fitWidth="61.0" layoutX="643.0" layoutY="445.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow4" fitHeight="29.0" fitWidth="24.0" layoutX="673.0" layoutY="329.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow12" fitHeight="60.0" fitWidth="47.0" layoutX="815.0" layoutY="468.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow5" fitHeight="29.0" fitWidth="24.0" layoutX="808.0" layoutY="332.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow6" fitHeight="29.0" fitWidth="24.0" layoutX="941.0" layoutY="332.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow8" fitHeight="38.0" fitWidth="47.0" layoutX="360.0" layoutY="398.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow10" fitHeight="47.0" fitWidth="47.0" layoutX="494.0" layoutY="392.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow1" fitHeight="38.0" fitWidth="47.0" layoutX="256.0" layoutY="346.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow3.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow7" fitHeight="38.0" fitWidth="47.0" layoutX="1038.0" layoutY="391.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow13" fitHeight="68.0" fitWidth="84.0" layoutX="785.0" layoutY="385.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="arrow14" fitHeight="38.0" fitWidth="47.0" layoutX="956.0" layoutY="392.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow3.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="162.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+      <ImageView fx:id="arrow15" fitHeight="47.0" fitWidth="47.0" layoutX="524.0" layoutY="373.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../res/circle.png" />
+            <Image url="@../res/arrow4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="171.0" fitWidth="169.0" layoutX="1002.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow16" fitHeight="68.0" fitWidth="61.0" layoutX="801.0" layoutY="372.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../res/circle.png" />
-         </image>
-      </ImageView>
-      <Pane fx:id="currentStatePane" layoutX="1063.0" layoutY="72.0" prefHeight="127.0" prefWidth="130.0" />
-      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="976.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="15.0" layoutY="545.0" mnemonicParsing="false" onAction="#reset" prefHeight="26.0" prefWidth="137.0" text="Reset Game" />
-      <Pane fx:id="previousStatePane" layoutX="881.0" layoutY="72.0" prefHeight="127.0" prefWidth="130.0" />
-      <ImageView fx:id="one" fitHeight="139.0" fitWidth="170.0" layoutX="190.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/1.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="two" fitHeight="139.0" fitWidth="170.0" layoutX="283.0" layoutY="277.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/2.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="three" fitHeight="139.0" fitWidth="170.0" layoutX="420.0" layoutY="275.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/3.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="four" fitHeight="139.0" fitWidth="170.0" layoutX="554.0" layoutY="277.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/4.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="five" fitHeight="139.0" fitWidth="170.0" layoutX="687.0" layoutY="277.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/5.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="six" fitHeight="139.0" fitWidth="170.0" layoutX="822.0" layoutY="280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/6.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="seven" fitHeight="139.0" fitWidth="170.0" layoutX="953.0" layoutY="280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/7.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="eight" fitHeight="139.0" fitWidth="170.0" layoutX="1066.0" layoutY="371.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/8.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="nine" fitHeight="139.0" fitWidth="170.0" layoutX="369.0" layoutY="414.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/9.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ten" fitHeight="139.0" fitWidth="181.0" layoutX="516.0" layoutY="409.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/10.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="eleven" fitHeight="139.0" fitWidth="181.0" layoutX="689.0" layoutY="417.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/11.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="twelve" fitHeight="139.0" fitWidth="181.0" layoutX="849.0" layoutY="406.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/12.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow3" fitHeight="29.0" fitWidth="24.0" layoutX="540.0" layoutY="325.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow2" fitHeight="30.0" fitWidth="31.0" layoutX="400.0" layoutY="328.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow10" fitHeight="38.0" fitWidth="38.0" layoutX="489.0" layoutY="463.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow15" fitHeight="60.0" fitWidth="61.0" layoutX="643.0" layoutY="445.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow4" fitHeight="29.0" fitWidth="24.0" layoutX="673.0" layoutY="329.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow12" fitHeight="60.0" fitWidth="47.0" layoutX="812.0" layoutY="468.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow5" fitHeight="29.0" fitWidth="24.0" layoutX="808.0" layoutY="332.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow6" fitHeight="29.0" fitWidth="24.0" layoutX="941.0" layoutY="332.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow8" fitHeight="38.0" fitWidth="47.0" layoutX="360.0" layoutY="398.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow2.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow9" fitHeight="47.0" fitWidth="47.0" layoutX="494.0" layoutY="392.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow2.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow1" fitHeight="38.0" fitWidth="47.0" layoutX="256.0" layoutY="346.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow3.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow7" fitHeight="38.0" fitWidth="47.0" layoutX="1038.0" layoutY="391.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow2.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow11" fitHeight="68.0" fitWidth="84.0" layoutX="796.0" layoutY="377.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow2.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="arrow13" fitHeight="38.0" fitWidth="47.0" layoutX="955.0" layoutY="394.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow3.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="162.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../res/arrow.png" />
+            <Image url="@../res/arrow4.png" />
          </image>
       </ImageView>
     </children>
