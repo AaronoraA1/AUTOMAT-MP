@@ -11,6 +11,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1200.0" style="-fx-background-color: darkblue;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
     <children>
+      <ImageView fx:id="finalCircle" fitHeight="147.0" fitWidth="138.0" layoutX="1051.0" layoutY="389.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/circle.png" />
+         </image>
+      </ImageView>
         <ImageView fitHeight="282.0" fitWidth="830.0" layoutX="-28.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../res/galaxy.jpg" />
@@ -137,7 +142,7 @@
         </ImageView>
         <Button layoutX="15.0" layoutY="547.0" mnemonicParsing="false" onAction="#reset" prefHeight="26.0" prefWidth="137.0" text="Reset Game" />
         <Pane fx:id="previousStatePane" layoutX="876.0" layoutY="72.0" prefHeight="127.0" prefWidth="130.0" />
-        <ImageView fx:id="one" fitHeight="139.0" fitWidth="170.0" layoutX="190.0" layoutY="373.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="one" fitHeight="139.0" fitWidth="170.0" layoutX="190.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../res/1.png" />
             </image>
@@ -147,7 +152,7 @@
                 <Image url="@../res/2.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="three" fitHeight="139.0" fitWidth="170.0" layoutX="420.0" layoutY="275.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="three" fitHeight="139.0" fitWidth="170.0" layoutX="419.0" layoutY="275.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../res/3.png" />
             </image>
@@ -172,7 +177,7 @@
                 <Image url="@../res/7.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="eight" fitHeight="139.0" fitWidth="170.0" layoutX="1066.0" layoutY="371.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="eight" fitHeight="139.0" fitWidth="170.0" layoutX="1056.0" layoutY="393.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../res/8.png" />
             </image>
@@ -232,11 +237,6 @@
                 <Image url="@../res/arrow.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="arrow6" fitHeight="29.0" fitWidth="24.0" layoutX="941.0" layoutY="332.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../res/arrow.png" />
-            </image>
-        </ImageView>
         <ImageView fx:id="arrow8" fitHeight="38.0" fitWidth="47.0" layoutX="360.0" layoutY="398.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../res/arrow2.png" />
@@ -257,7 +257,7 @@
                 <Image url="@../res/arrow2.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="arrow13" fitHeight="68.0" fitWidth="84.0" layoutX="780.0" layoutY="385.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="arrow13" fitHeight="68.0" fitWidth="84.0" layoutX="783.0" layoutY="387.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../res/arrow2.png" />
             </image>
@@ -267,28 +267,22 @@
                 <Image url="@../res/arrow3.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="162.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../res/arrow.png" />
-            </image>
-        </ImageView>
       <ImageView fx:id="arrow15" fitHeight="47.0" fitWidth="47.0" layoutX="524.0" layoutY="374.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrow16" fitHeight="68.0" fitWidth="61.0" layoutX="801.0" layoutY="372.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow16" fitHeight="68.0" fitWidth="61.0" layoutX="799.0" layoutY="378.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow4.png" />
          </image>
       </ImageView>
-      <Button fx:id="hintButton1" layoutX="15.0" layoutY="513.0" mnemonicParsing="false" onAction="#showAutomata" prefHeight="26.0" prefWidth="137.0" text="Show Automata" />
       <ImageView fx:id="arrow17" fitHeight="30.0" fitWidth="31.0" layoutX="400.0" layoutY="340.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrow18" fitHeight="24.0" fitWidth="24.0" layoutX="540.0" layoutY="338.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow18" fitHeight="24.0" fitWidth="24.0" layoutX="539.0" layoutY="338.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow5.png" />
          </image>
@@ -323,15 +317,96 @@
             <Image url="@../res/arrow5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrow25" fitHeight="61.0" fitWidth="68.0" layoutX="807.0" layoutY="479.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow25" fitHeight="61.0" fitWidth="68.0" layoutX="807.0" layoutY="483.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrow26" fitHeight="47.0" fitWidth="47.0" layoutX="966.0" layoutY="397.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow26" fitHeight="47.0" fitWidth="47.0" layoutX="964.0" layoutY="397.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/arrow6.png" />
          </image>
       </ImageView>
+        <ImageView fx:id="arrow6" fitHeight="29.0" fitWidth="24.0" layoutX="941.0" layoutY="332.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="162.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../res/arrow.png" />
+            </image>
+        </ImageView>
+      <Button fx:id="hintButton1" layoutX="15.0" layoutY="513.0" mnemonicParsing="false" onAction="#showAutomata" prefHeight="26.0" prefWidth="137.0" text="Show Automata" />
+      <Label fx:id="label1" layoutX="249.0" layoutY="341.0" opacity="0.0" text="LC" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label2" layoutX="410.0" layoutY="301.0" opacity="0.0" text="L" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label3" layoutX="536.0" layoutY="299.0" opacity="0.0" text="HH" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label4" layoutX="677.0" layoutY="301.0" opacity="0.0" text="C" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label5" layoutX="807.0" layoutY="300.0" opacity="0.0" text="CG" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label6" layoutX="944.0" layoutY="300.0" opacity="0.0" text="C" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label7" layoutX="1064.0" layoutY="384.0" opacity="0.0" text="LC" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label8" layoutX="359.0" layoutY="414.0" opacity="0.0" text="C" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label9" layoutX="493.0" layoutY="513.0" opacity="0.0" text="CG" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label10" layoutX="493.0" layoutY="412.0" opacity="0.0" text="LG" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label11" layoutX="660.0" layoutY="510.0" opacity="0.0" text="C" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label12" layoutX="830.0" layoutY="515.0" opacity="0.0" text="HH" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label13" layoutX="783.0" layoutY="404.0" opacity="0.0" text="LG" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="label14" layoutX="992.0" layoutY="413.0" opacity="0.0" text="L" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

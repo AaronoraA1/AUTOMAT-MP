@@ -31,11 +31,14 @@ public class Controller {
     ImageView marsHuman1Pic, marsHuman2Pic, marsCowPic, marsLionPic, marsGrainPic;
 
     @FXML
-    ImageView one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve;
+    ImageView one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, finalCircle;
     @FXML
     ImageView arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, arrow7, arrow8, arrow9, arrow10, arrow11, arrow12, arrow13, arrow14, arrow15, arrow16;
     @FXML
     ImageView arrow17, arrow18, arrow19, arrow20, arrow21, arrow22, arrow23, arrow24, arrow25, arrow26;
+
+    @FXML
+    Label label1, label2, label3, label4, label5, label6, label7, label8, label9, label10, label11, label12, label13, label14;
 
     @FXML
     ImageView scientistSpaceship;
@@ -508,7 +511,7 @@ public class Controller {
         displayCurrentStatePane(getElements());
 
         if (alertsLabel.getText().toString().equals("GAME OVER!")){
-            clearAutomata();
+            showAutomata();
         }
     }
 
@@ -840,6 +843,7 @@ public class Controller {
         ten.setOpacity(0);
         eleven.setOpacity(0);
         twelve.setOpacity(0);
+        finalCircle.setOpacity(0);
 
         arrow1.setOpacity(0);
         arrow2.setOpacity(0);
@@ -867,6 +871,21 @@ public class Controller {
         arrow24.setOpacity(0);
         arrow25.setOpacity(0);
         arrow26.setOpacity(0);
+
+        label1.setOpacity(0);
+        label2.setOpacity(0);
+        label3.setOpacity(0);
+        label4.setOpacity(0);
+        label5.setOpacity(0);
+        label6.setOpacity(0);
+        label7.setOpacity(0);
+        label8.setOpacity(0);
+        label9.setOpacity(0);
+        label10.setOpacity(0);
+        label11.setOpacity(0);
+        label12.setOpacity(0);
+        label3.setOpacity(0);
+        label14.setOpacity(0);
     }
 
     public void showAutomata(){
@@ -882,6 +901,7 @@ public class Controller {
         ten.setOpacity(1);
         eleven.setOpacity(1);
         twelve.setOpacity(1);
+        finalCircle.setOpacity(1);
 
         arrow1.setOpacity(1);
         arrow2.setOpacity(1);
@@ -909,6 +929,21 @@ public class Controller {
         arrow24.setOpacity(1);
         arrow25.setOpacity(1);
         arrow26.setOpacity(1);
+
+        label1.setOpacity(1);
+        label2.setOpacity(1);
+        label3.setOpacity(1);
+        label4.setOpacity(1);
+        label5.setOpacity(1);
+        label6.setOpacity(1);
+        label7.setOpacity(1);
+        label8.setOpacity(1);
+        label9.setOpacity(1);
+        label10.setOpacity(1);
+        label11.setOpacity(1);
+        label12.setOpacity(1);
+        label3.setOpacity(1);
+        label14.setOpacity(1);
     }
 
     public void disableTravellingElements(){
@@ -992,108 +1027,161 @@ public class Controller {
     public void updateSolutionStates(State state){
         if (state.checkIfPresentEarth("H") && state.checkIfPresentEarth( "P") &&  state.checkIfPresentEarth("G")
                 && state.checkIfPresentMars("L") && state.checkIfPresentMars("C")){
-            if (prev == 2)
+            if (prev == 2) {
                 arrow17.setOpacity(1);
-            if (prev == 8)
+                label2.setOpacity(1);
+            }
+            if (prev == 8) {
                 arrow22.setOpacity(1);
-            else
+                label8.setOpacity(1);
+            }
+            else {
                 arrow1.setOpacity(1);
+                label1.setOpacity(1);
+            }
             prev = 1;
             two.setOpacity(1);
         } //ok
         else if (state.checkIfPresentEarth("H") && state.checkIfPresentEarth("P") &&  state.checkIfPresentEarth("G")
                 && state.checkIfPresentEarth("L") && state.checkIfPresentMars("C")){
-            if (prev == 1)
+            if (prev == 1) {
                 arrow2.setOpacity(1);
-            if (prev == 9)
+                label2.setOpacity(1);
+            }
+            if (prev == 9) {
                 arrow15.setOpacity(1);
-            if (prev == 3)
+                label10.setOpacity(1);
+            }
+            if (prev == 3) {
                 arrow18.setOpacity(1);
+                label3.setOpacity(1);
+            }
             prev = 2;
             three.setOpacity(1);
         }
         else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentEarth("G")
                 && state.checkIfPresentEarth("L") && state.checkIfPresentMars("C")){
-            if (prev == 2)
+            if (prev == 2) {
                 arrow3.setOpacity(1);
-            if (prev == 4)
+                label3.setOpacity(1);
+            }
+            if (prev == 4) {
                 arrow19.setOpacity(1);
+                label4.setOpacity(1);
+            }
             prev = 3;
             four.setOpacity(1);
         }
         else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentEarth("G")
                 && state.checkIfPresentEarth("L") && state.checkIfPresentEarth("C")){
-            if (prev == 3)
+            if (prev == 3) {
                 arrow4.setOpacity(1);
-            if (prev == 11)
+                label4.setOpacity(1);
+            }
+            if (prev == 11) {
                 arrow16.setOpacity(1);
-            if (prev == 5)
+                label13.setOpacity(1);
+            }
+            if (prev == 5) {
                 arrow20.setOpacity(1);
+                label5.setOpacity(1);
+            }
             prev = 4;
             five.setOpacity(1);
         }
         else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentMars("G")
                 && state.checkIfPresentEarth("L") && state.checkIfPresentMars("C")){
-            if (prev == 4)
+            if (prev == 4) {
                 arrow5.setOpacity(1);
-            if (prev == 6)
+                label5.setOpacity(1);
+            }
+            if (prev == 6) {
                 arrow21.setOpacity(1);
+                label6.setOpacity(1);
+            }
             prev = 5;
             six.setOpacity(1);
         }
         else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentMars("G")
                 && state.checkIfPresentEarth("L") && state.checkIfPresentEarth("C")){
-            if (prev == 5)
+            if (prev == 5) {
                 arrow6.setOpacity(1);
-            if (prev == 11)
+                label6.setOpacity(1);
+            }
+            if (prev == 11) {
                 arrow14.setOpacity(1);
+                label14.setOpacity(1);
+            }
             prev = 6;
             seven.setOpacity(1);
         }
         else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentMars("G")
                 && state.checkIfPresentMars("L")  && state.checkIfPresentMars("C")){
-            if (prev == 6)
+            if (prev == 6) {
                 arrow7.setOpacity(1);
+                label7.setOpacity(1);
+            }
             prev = 7;
             eight.setOpacity(1);
+            finalCircle.setOpacity(1);
         }
         else if (state.checkIfPresentEarth("H") && state.checkIfPresentEarth("P") &&  state.checkIfPresentEarth("G")
                 && state.checkIfPresentMars("L")  && state.checkIfPresentEarth("C")){
-            if (prev == 1)
+            if (prev == 1) {
                 arrow8.setOpacity(1);
-            if (prev == 9)
+                label8.setOpacity(1);
+            }
+            if (prev == 9) {
                 arrow23.setOpacity(1);
+                label9.setOpacity(1);
+            }
             prev = 8;
             nine.setOpacity(1);
         }
         else if (state.checkIfPresentEarth("H") && state.checkIfPresentEarth("P") &&  state.checkIfPresentMars("G")
                 && state.checkIfPresentMars("L")  && state.checkIfPresentMars("C")){
-            if (prev == 8)
+            if (prev == 8) {
                 arrow9.setOpacity(1);
-            if (prev == 2)
+                label9.setOpacity(1);
+            }
+            if (prev == 2) {
                 arrow10.setOpacity(1);
-            if (prev == 10)
+                label10.setOpacity(1);
+            }
+            if (prev == 10) {
                 arrow24.setOpacity(1);
+                label11.setOpacity(1);
+            }
             prev = 9;
             ten.setOpacity(1);
         }
         else if (state.checkIfPresentEarth("H")&& state.checkIfPresentEarth("P") &&  state.checkIfPresentMars("G")
                 && state.checkIfPresentMars("L")  && state.checkIfPresentEarth("C")){
-            if (prev == 9)
+            if (prev == 9) {
                 arrow11.setOpacity(1);
-            if (prev == 11)
+                label11.setOpacity(1);
+            }
+            if (prev == 11) {
                 arrow25.setOpacity(1);
+                label12.setOpacity(1);
+            }
             prev = 10;
             eleven.setOpacity(1);
         }
         else if (state.checkIfPresentMars("H") && state.checkIfPresentMars("P") &&  state.checkIfPresentMars("G")
                 && state.checkIfPresentMars("L")  && state.checkIfPresentEarth("C")){
-            if (prev == 10)
+            if (prev == 10) {
                 arrow12.setOpacity(1);
-            if (prev == 4)
+                label12.setOpacity(1);
+            }
+            if (prev == 4) {
                 arrow13.setOpacity(1);
-            if (prev == 6)
+                label13.setOpacity(1);
+            }
+            if (prev == 6) {
                 arrow26.setOpacity(1);
+                label14.setOpacity(1);
+            }
             prev = 11;
             twelve.setOpacity(1);
         }
